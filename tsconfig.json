@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+        "outDir":"./dist",
+        "noEmit": false,
+        "noEmitOnError": true ,
+        "declaration": false,
+        "declarationDir": "./typyings",
+
+        "stripInternal": false, //if true /** @internal*/  named function will not include by declaration
+        "sourceMap": false, // will create .js.map alongside .js
+        "inlineSourceMap": false ,
+        "mapRoot": "./source-maps",
+
+        
+        "noImplicitAny": true, // a:any is an error , any type is error
+        "strictNullChecks": true, //any null is not assignable
+
+
+        "allowUnreachableCode": true , //allow unreachable code defaut false
+        "allowUnusedLabels": true, //allow unused lebel default false
+
+
+        "noUnusedLocals": true, // shows error if any local var is unused
+        "noUnusedParameters": true, // shows error if any unused parameter
+        "noFallthroughCasesInSwitch": true, //every switch statement has to have break
+        "noImplicitReturns": true , // you have to return value
+
+    },
+    "include":[
+        "src/two.ts",
+        "src/internal",
+        "src/**/*.internal.ts",
+        "src/m???.ts"
+    ],
+    "exclude":[
+        "src/**/two.internal.ts"
+    ],
+    "files": [// file has highest prioty 
+        "./src/one.external.ts"
+    ]
+}
+
+
+// "paths": {
+//       "@/*": [
+//         "src/*"
+//       ]
