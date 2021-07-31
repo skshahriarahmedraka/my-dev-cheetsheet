@@ -1,0 +1,28 @@
+
+
+ sudo mysql -u root -p
+ 
+ mysql> CREATE USER 'raka'@'localhost' IDENTIFIED BY '111187' ;
+
+ mysql> GRANT ALL PRIVILEGES ON *.* TO 'raka'@'localhost' ;
+
+
+mysql> SHOW DATABASES ;
+
+mysql> CREATE DATABASE rakaData ;
+
+mysql> USE rakadata ;
+
+mysql> CREATE TABLE books (
+     title VARCHAR(50) NOT NULL ,
+     price INT NOT NULL ,
+     language VARCHAR(50) DEFAULT "ENGLISH" ,
+     author VARCHAR(60) NOT NULL ) ;
+     
+     
+     
+mysql> INSERT INTO books VALUE("GO programming", 500.00 , "bangla","sk shahriar ahmed raka");
+
+mysql> SELECT * FROM books ;
+
+

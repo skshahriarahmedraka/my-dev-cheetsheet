@@ -1,0 +1,41 @@
+ALTER USER postgres WITH PASSWORD '111187' ;
+CREATE DATABASE customer ;
+
+postgres@ahmed-asus:~$ psql -h localhost -p 5432 -U postgres customerdb
+
+
+
+list of database : \l
+List of roles : \du
+                                  
+postgres=# GRANT ALL PRIVILEGES ON DATABASE customerdb to ahmed;
+
+CREATE DATABASE yourdbname;
+CREATE USER youruser WITH ENCRYPTED PASSWORD 'yourpass';
+GRANT ALL PRIVILEGES ON DATABASE yourdbname TO youruser;
+
+Access the PostgreSQL server from psql with a specific user:
+psql -U postgres
+
+connect to a database :  \c database_name;
+
+yourdatabasename=#  \i /home/ahmed/Downloads/person.sql 
+
+SELECT * FROM person ;
+
+CREATE DATABASE name
+    [ [ WITH ] [ OWNER [=] user_name ]
+           [ TEMPLATE [=] template ]
+           [ ENCODING [=] encoding ]
+           [ LC_COLLATE [=] lc_collate ]
+           [ LC_CTYPE [=] lc_ctype ]
+           [ TABLESPACE [=] tablespace_name ]
+           [ ALLOW_CONNECTIONS [=] allowconn ]
+           [ CONNECTION LIMIT [=] connlimit ]
+           [ IS_TEMPLATE [=] istemplate ] ]
+           
+           
+postgres=# CREATE DATABASE people OWNER dummy ;
+
+List of relations : \dt
+
