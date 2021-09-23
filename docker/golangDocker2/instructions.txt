@@ -1,0 +1,9 @@
+terminal command :
+
+docker images
+
+docker build -t golang-api .
+
+docker images 
+
+docker run -p 8080:8000 golang-api

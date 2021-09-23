@@ -1,0 +1,5 @@
+
+create ssl certificate : 
+
+openssl req -x509 -newkey rsa:4096 -nodes -sha256 -subj '/CN=localhost' -days 365 -keyout localhost-private.pem -out localhost-cert.cert
+
