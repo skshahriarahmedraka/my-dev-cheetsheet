@@ -1,0 +1,35 @@
+# simple server
+	sudo npm  i -g http-server
+#or
+	npm install -g live-server
+
+# svelte create project
+	sudo npm install -g degit
+	sudo npx degit sveltejs/template project-name
+	npm install 
+# svelte kit
+	npm init svelte@next ProjectName
+	cd ProjectName
+	npm install
+	npm run dev -- --open
+
+
+# tailwindcss
+	npm i tailwindcss
+	npx tailwindcss init
+	npm i postcss autoprefixer postcss-cli
+
+# generate tailwind.config.js and postcss.config.js
+	npx tailwindcss init -p  
+
+npm install -D tailwindcss@latest postcss autoprefixer
+npm install -D tailwindcss postcss autoprefixer
+npm i tailwindcss sirv-cli postcss-cli postcss cross-env concurrently autoprefixer
+
+
+# svelte Kit + tailwindcss
+
+npm init svelte@next project-Name
+npx svelte-add@latest tailwindcss
+npm i
+

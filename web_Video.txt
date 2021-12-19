@@ -1,0 +1,12 @@
+
+
+hls with ffmpeg :
+
+ffmpeg -i v.mp4 -codec: copy -start_number 0 -hls_time 10 -hls_list_size 0 -bsf:v h264_mp4toannexb -f hls index.m3u8
+
+
+dash with MP4Box : 
+
+sudo apt install -y gpac
+
+MP4Box -dash 2000 -profile dashavc264:live -bs-switching multi -url-template sample.mp4#trackID=1:id=vid0:role=vid0 sample.mp4#trackID=2:id=aud0:role=aud0 -out manifest.mpd

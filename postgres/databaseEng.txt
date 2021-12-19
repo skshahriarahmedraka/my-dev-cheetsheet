@@ -1,0 +1,9 @@
+
+postgres=# select id from emplyees where id = 1000 ;
+
+
+postgres=# explain analyze select id from emplyees where id = 1000 ;
+postgres=# explain analyze select name from emplyees where name = "raka" ;
+
+$ searching of "id" is faster than "name" because "id" is indexed
+

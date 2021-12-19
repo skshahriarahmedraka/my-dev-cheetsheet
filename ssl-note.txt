@@ -1,5 +1,10 @@
 
-create ssl certificate : 
+create ssl certificate for localhost(127.0.0.1) : 
 
 openssl req -x509 -newkey rsa:4096 -nodes -sha256 -subj '/CN=localhost' -days 365 -keyout localhost-private.pem -out localhost-cert.cert
 
+
+ssl only private key:  
+ openssl genrsa -out cert/private.key 4096
+ssl public key from private key : 
+ penssl req -new -x509 -sha256 -days 1825 -key cert/private.key -out cert/public.crt

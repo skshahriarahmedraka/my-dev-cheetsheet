@@ -1,0 +1,9 @@
+
+# explain analyze select id from employee where id=2000;
+$ will take lesstime 
+
+# explain analyze select name from employees where id=5000;
+
+$ as name is not the index it will take more time
+
+

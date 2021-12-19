@@ -1,0 +1,179 @@
+/* background */
+div {
+   
+ background: #ffffff url("img_tree.png") repeat-y right top;
+ /* background: color url("img_tree.png") repeat-x center;
+  background: #ffffff url("img_tree.png") no-repeat right top; */
+}
+
+
+/*  border  */
+ p {
+    border-style: top-border-style right-border-style bottom-border-style left-border-style ;
+    border-style: dotted solid double dashed;
+    /**/
+    border: border-width border-style(required) border-color;
+    border: 5px solid red;
+     /**/
+    border-bottom: border-width border-style(required) border-color;
+    border-top: border-width border-style(required) border-color;
+    border-left: border-width border-style(required) border-color;
+    border-right: border-width border-style(required) border-color;
+     
+    /**/
+    
+    border-radius : 5px;
+
+
+
+ }
+ 
+/* margin */
+p {
+  /* margin: top right bottom left; */
+  margin: 25px 50px 75px 100px;
+} 
+
+div {
+  width: 300px;
+  margin: auto; /* to horizontally center the element within its container. */
+  border: 1px solid red;
+}
+
+div {
+  border: 1px solid red;
+  margin-left: 100px;
+}
+p.ex1 {
+  margin-left: inherit;
+}
+/* padding  */
+
+div {
+  /* padding: top right bottom left; */
+  padding: 25px 50px 75px 100px;
+}
+/* outline */
+div {outline: thick ridge pink;}
+p {
+  margin: 30px;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;/* The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent. */
+}
+/* text shadow */
+
+h1 {
+  color: white;
+  /* text-shadow: horizontal vartical blur color; */
+  text-shadow: 2px 2px 5px red;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+/* To allow users to resize the text (in the browser menu), many developers use em instead of pixels.
+
+1em is equal to the current font size. The default text size in browsers is 16px. So, the default size of 1em is 16px.
+
+The size can be calculated from pixels to em using this formula: pixels/16=em
+ */
+/* 
+The text size can be set with a vw unit, which means the "viewport width".
+
+That way the text size will follow the size of the browser window: */
+
+/* font */
+p.a {
+  font: 20px Arial, sans-serif;
+}
+
+p.b {
+  font : font-style font-variant font-weight font-size/line-height font-family;
+  font: italic small-caps bold 12px/30px Georgia, serif;
+}
+
+/* unordered list */
+
+ul {
+  /* list-style-type (if a list-style-image is specified, the value of this property will be displayed if the image for some reason cannot be displayed)
+list-style-position (specifies whether the list-item markers should appear inside or outside the content flow)
+list-style-image (specifies an image as the list item marker) */
+  list-style: square inside url("sqpurple.gif");
+}
+
+/* Flex Box */
+
+/*  container div and n number child div */
+
+.container {
+  /* flex-flow: row-reverse/column-reverse/row/column/ nowrap/wrap; */
+  flex-flow: row wrap;
+  /* justify-content (content alignment) */
+  justify-content: flex-end;
+  /* align-items: (align items in row/column ) */
+  align-items: stretch;
+
+}
+/* flex box child */
+.three {
+  /* sets the order of child */
+  order:4;
+  /* item grows if there is space (0/1)*/
+  flex-grow: 1;
+  /* item shrinks if there is less space (0/1) */
+  flex-shrink: 0;
+  /* in flex item use flex-basis instade of min-width */
+  flex-basis: 200px;
+  /* flex : flex-grow flex-shrink flex-basis */
+  flex: 1 0 200px 
+}
+
+/* Grid  */
+
+/* container div  */
+.container{
+  display: grid;
+  /* number of input number of value ,else auto  */
+  grid-template-columns: 200px 200px auto ;
+  /* repeat same value */
+  grid-template-columns: repeat(3, 1fr) ;
+  /* fr = fraction */
+  grid-template-columns: 1fr 2fr auto ; 
+  /* number of input number of value ,else auto  */
+  grid-template-rows: 300px 300px;
+  /* grid template : grid-template-column / grid-template-row */
+  grid-template: 2fr 3fr / 1fr 2fr ;
+  
+  gap: 3px ;
+  
+  grid-template-columns: repeat(autofit, minmax(200px,1fr)) ;
+  grid-template-columns: repeat(autofill, minmax(200px,1fr)) ;
+
+  grid-auto-rows: 1fr ;
+
+  
+}
+.gridChild1 {
+   /* grid-column start(1) / end (-1 ) */
+  grid-column: 1 / -1 ;
+  grid-column: 1 / 3  ;
+  grid-column: 2 / -1  ;
+}
+/* grid example  */
+
+.container {
+  grid-template-areas:
+  ". h h h h h h h h h h ."
+  "m m m c c c c c c c c c"
+  ". f f f f f f f f f f ." ;
+}
+.header {
+  grid-area: h;
+}
+.footer {
+  grid-area: f ;
+}
+.content {
+  grid-area: c;
+}
+.menu {
+  grid-area: m;
+}

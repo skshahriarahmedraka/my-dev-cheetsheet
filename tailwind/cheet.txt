@@ -1,0 +1,7 @@
+## text
+	text-xl
+	text-left
+	text-transparent
+	text-gray-500
+	text-opacity 
+## 
