@@ -1,9 +1,161 @@
-
+@ 1
 postgres=# select id from emplyees where id = 1000 ;
 
-
+1.
 postgres=# explain analyze select id from emplyees where id = 1000 ;
-postgres=# explain analyze select name from emplyees where name = "raka" ;
+area=> EXPLAIN ANALYZE SELECT id FROM person WHERE id =15;
+
+2.
+postgres=# explain analyze select name from emplyees where id=24 ;
+area=> EXPLAIN ANALYZE SELECT first_name FROM person WHERE id=100;
+
+
+3.
+postgres=# explain analyze select id from emplyees where name = "raka" ;
+area=> EXPLAIN ANALYZE SELECT id FROM person WHERE first_name ='Domingo';
 
 $ searching of "id" is faster than "name" because "id" is indexed
+1 is faster than 2 is faster than 3 
+
+#
+postgres=# create index employees_name on emplyees(name) ; // bitmap heap scan on employees
+
+postgres=# explain analyze select id,name from employees where name = 'Zs'; // now bitmap heap scan happend on employees //fast
+
+postgres=# EXPLAIN ANALYZE SELECT id,name FROM employees WHERE name like '%Zs%'; // here parallel seq scan on employees  //sow
+
+@ 2
+
+create a postgres using docker 
+~# docker run  -e POSTGRES-PASSWORD=postgres --name pg1 postgres 
+
+from another terminal 
+~# docker exec -it pg1 psql -U postgres 
+
+create table
+~# CREATE TABLE temp(t int);
+
+insert 1000 random  value(from 0-100) in table 
+~# INSERT INTO temp(t) SELECT random()*100 FROM generate_series(0,1000) ; 
+
+see certain number of col 
+~# SELECT t FROM temp limit 10 ; 
+
+~# SELECT count(*) from temp ; // count number of row
+
+@ 3 
+// key columns // non-key columns
+describe table 
+~# \d grade_org ;
+column  |  type 
+id 	| int (not null)
+g	| int (not null)
+name 	| character varying(200)
+count value 
+~# EXPLAIN ANALYZE SELECT name FROM grade_org WHERE g=30 ; // parallal Seq Scan // whole table scan
+~# CREATE index g_idx on grade_org(g) ; // create index of column g 
+~# EXPLAIN ANALYZE SELECT name FROM grade_org WHERE g=30 ; // bitmap heap Scan // but its slower beacuse it jump back and forth
+
+
+~# SELECT pg_relation_size(oid)/(1000*1000) || 'MB' ,relname FROM pg_class ORDER  BY pg_relation_size(oid) desc ;
+
+
+~# DROP index g_idx ; //delete g_idx 
+~#CREATE index g_idx on grades_org(g) include (name) ;  // ***** the g_idx size become 65MB to 315MB 
+~# \d grade_org ;
+~# EXPLAIN ANALYZE SELECT name FROM grade_org WHERE g=30 ; // index only Scan // but it is faster than before //
+~#
+
+@ 4
+// index scan vs index only scan
+
+~# \d grades ; 
+column  |  type 
+id 	| int
+g	| int
+name 	| character varying(200)
+~# EXPLAING ANALYZE  SELECT  name FROM  grade WHERE id = 7 ; // parallel seq scan 
+~# CREATE INDEX id_idx ON grades(id) ;  
+~# EXPLAIN ANALYZE SELECT  name from grade WHERE  id =7 ; // index scan using id_idx
+~# EXPLAIN ANALYZE SELECT id from grade WHERE  id =7 ; //index only scan using id_idx 
+~# DROP INDEX id_idx ; // drop index 
+~# CREATE INDEX id_idx on grades(id) include(name); // create index includeing name  
+~# EXPLAIN ANALYZE SELECT name FROM grades WHERE ID= 7 ;  // ** index only scan using id_idx 
+~# EXPLAIN ANALYZE SELECT g FROM  grades where id =7 ; // index scan using id_idx
+// index scan is slower than index only scan 
+
+@ 5 
+
+~# \d test ;
+column	| type 
+a	| int 
+b	| int 
+c	| int 
+ 
+~# SELECT c from test WHERE a=70; 
+~# SELECT c FROM test where b=100; 
+~# SELECT c FROM text WHERE a=73 and b=123;
+~#  SELECT c FROM text WHERE a=86 or b=65;
+~# CREATE index ON test(a) ;
+~# CREATE index ON test(b) ;
+~# EXPLAIN ANALYZE SELECT c from test where a=70; // bit map heap scan on test // hitmap index scan on text_a_idx //exe253ms
+~# EXPLAIN ANALYZE SELECT c from text where a=70 limit 2 ; //limit //index scan using test_a_idx //exe0.215ms
+~# EXPLAIN ANALYZE SELECT c from text where b=100 ; // bitmap Heap scan on test // bitmap index scan on test_b_idx //exe250ms
+~# EXPLAIN ANALYZE SELECT c from text where a=100 and b=200; bit map heap scan on test //bitmap index scan on test_a_idx && bitmap index scan on test_b_idx //fast//exe4.1ms
+~# EXPLAIN ANALYZE SELECT c from text where a=100 or b=200; bit map heap scan on test //bitmap index scan on test_a_idx && bitmap index scan on test_b_idx // slower than and oparation//exe488ms
+
+~#  DROP INDEX test_a_idx , test_b_idx ;
+~# CREATE INDEX ON test (a,b) ;
+~# EXPLAIN ANALYZE SELECT c from text where a=70; //bitmap heap scan on test // bitmap index scan on test_a_b_idx//exe253ms
+~# EXPLAIN ANALYZE SELECT c from text where a=70 limit 10; // index scan using test_a_b_idx//exe0.824ms
+~# EXPLAIN ANALYZE SELECT c from text where b=100;// parallel Sequence scan on test// exe572ms
+~# EXPLAIN ANALYZE SELECT c from text where a=100 and b=200; //index scan using test_a_b_idx on test//exe 0.4ms
+~# EXPLAIN ANALYZE SELECT c from text where a=100 or b=200; // parallel seq scan on test // exe 758ms
+~# EXPLAIN ANALYZE SELECT c from text where a=100 or b=200 limit 1 ; // seq scan on test // exe202ms
+~# \d test ;
+column	| type 
+a	| int 
+b	| int 
+c	| int 
+indexes :
+	"test_a_b_idx" btree (a,b)
+
+~# CREATE INDEX ON test(b);
+~# EXPLAIN ANALYZE SELECT c from text where a=70; //bitmap heap scan on test // bitmap index scan on test_a_b_idx // exe208ms
+~# EXPLAIN ANALYZE SELECT c from text where b=70; //bitmap heap scan on test // bitmap index scan on test_b_idx // exe253ms
+~# EXPLAIN ANALYZE SELECT c from text where a=100 and b=200; //index scan using test_a_b_idx on test//exe 0.5ms
+~# EXPLAIN ANALYZE SELECT c from text where a=100 or b=200; //bitmap heap scan on test //bitmap heap scan on test using test_a_b_idx //bitmap heap scan on test_b_idx //exe 479ms
+
+
+
+@ 7
+
+~# \d news ;
+column	| type
+id	| integer 
+a	| text
+b	| text
+c	| int
+title	| text
+indexes:
+	id_idx b_tree(id)
+~# EXPAIN ANALYZE SELECT title from news order by id desc offset 0 limit 10 ;// index scan backword using id_idx 
+~# 
+~# 
+~# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

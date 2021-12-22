@@ -39,3 +39,21 @@ postgres=# CREATE DATABASE people OWNER dummy ;
 
 List of relations : \dt
 
+create table command :
+CREATE TABLE COMPANY(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+
+database-> \i '/media/rust/my dev cheetsheet/postgres/person.sql'
+
+
+
+
+
+
+
+
