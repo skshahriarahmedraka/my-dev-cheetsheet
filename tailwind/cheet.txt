@@ -5,3 +5,32 @@
 	text-gray-500
 	text-opacity 
 ## 
+
+@ extentions :
+1.tailwindcss-question-mark
+https://github.com/GavinJoyce/tailwindcss-question-mark
+
+	1# npm install tailwindcss-question-mark
+	2# module.exports = {
+  		theme: {
+  		  // ...
+  		},
+  		plugins: [
+    			require('tailwindcss-question-mark'),
+    		// ...
+  		],
+	}
+	
+	3# Simply add the ? utility class to any element that you'd like to 		highlight.
+2. How to Multi-Line Truncate Text in Tailwind CSS 
+	1# npm install @tailwindcss/line-clamp
+	2# module.exports = {
+  		plugins: [
+    		require('@tailwindcss/line-clamp'),
+  		],
+	}
+	3# <p class="line-clamp-2">
+
+
+
+

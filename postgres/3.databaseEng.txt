@@ -1,0 +1,91 @@
+@ 2
+dead lock
+------------------------
+~# begin transanction ;
+BEGIN 
+~# INSERT INTO test VALUE(21);
+INSERT 0 1 ;
+~# INSERT INTO test value (20);
+INSERT 0 1 
+----------------------------
+~# begin transaction ;
+BEGIN 
+~# INSERT INTO test values(20);
+INSERT 0 1 
+~# INSERT INTO test VALUE(21);
+ERROR :deadlock detected
+----------------------------
+----------------------------
+~# begin transaction ;
+BEGIN
+~# INSERT INTO test VALUES(30);
+INSERT 0 1 
+~# INSERT INTO test VALUES(20);
+INSERT 0,1
+-------------------------------
+~# BEGIN TRANSACTION ;
+BEGIN
+~# INSERT INTO test VALUES(20) ;
+INSERT 0 1
+~# ROLLBACK ;
+-------------------------------
+-------------------------------
+~# BEGIN TRANSACTION ;
+BEGIN
+~# INSERT INTO test values(30) ;
+INSERT 0 1 
+~# INSERT INTO test VALUES(20);
+error : duplicate key
+-------------------------------
+~# BEGIN TRANSCATION ;
+BEGIN 
+~# INSERT INTO test VALUES(20);
+INSERT 0 1
+~# COMMIT ;
+COMMIT
+------------------------------
+@ 3
+------------------------------
+2 phase locking
+~# BEGIN TRANSACTION ;
+BEGIN 
+~# SELECT * FROM seats WHERE ID=13 ;
+ID	| isbooked 
+13		0 
+~# UPDATE seats SET isbookded =1 ,name='Edmon' WHERE ID =13 ;
+UPDATE 1 
+~# COMMIT ;
+----------------------------------
+~# BEGIN TRANSACTION ;
+BEGIN 
+~# SELCT * FROM seats WHERE ID =13 ;
+~# UPDATE seats SET isbooked =1 , name="hussein' WHERE ID =13 ;
+UPDATE 1 
+~# COMMIT ;
+COMMIT 
+~# SELECT * FROM seats WHERE ID =13 ;
+id	| isbooked 
+13	| 1	Hussein
+~# SELECT * FROM seats WHERE ID =13 ;
+ID 	| ISBOOKED 
+13	| 1	edmond
+----------------------------
+-----------------------------
+~# BEGIN TRANSACTION ;
+BEGIN 
+~# SELECT * FROM seats WHERE ID =14 FOR UPDATE ;
+id	| isbooked | name
+14	| 1 |	    hussein
+------------------------------
+~# BEGIN TRANSACTION 
+~# SELECT * FROM seats WHREW ID =14 FOR UPDATE ;
+id	| isbooked 
+14	| 0
+~# UPDATE seats SET isbooked =1 , name ='Hussein' where id =14 ;
+UPDATE 1 
+~# commit ;
+COMMIT 
+~# 
+~# 
+~# 
+~# 

@@ -140,9 +140,141 @@ title	| text
 indexes:
 	id_idx b_tree(id)
 ~# EXPAIN ANALYZE SELECT title from news order by id desc offset 0 limit 10 ;// index scan backword using id_idx 
+~# EXPAIN ANALYZE SELECT title FROM news ORDER BY id DESC OFFSET 1000 LIMIT 10 ;// index scan backword using id_idx // analyze 1010 rows to get 10 row //exe1.021ms
+~# EXPAIN ANALYZE SELECT title FROM news ORDER BY id DESC OFFSET 100000 LIMIT 10 ;// index scan backword using id_idx // analyze 100010 rows to get 10 row //exe79ms
+~# EXPAIN ANALYZE SELECT title FROM news ORDER BY id DESC OFFSET 1000000 LIMIT 10 ;// index scan backword using id_idx // analyze 1000010 rows to get 10 row //exe620ms
+
+~# SELECT title,id FROM news ORDER BY id DESC limit 10; // gives the last 10 rows
+
+~#EXPLAIN ANALYZE SELECT title,id FROM news WHERE id<100999993 ORDER BY id DESC limit 10; // gives the last 10 rows from 100999993// fetch the first rows only //exe0.197ms 
+~#EXPLAIN ANALYZE SELECT title,id FROM news WHERE id<1000 ORDER BY id DESC limit 10; // gives the last 10 rows from 1000// analyze only 89rows// fetch the first rows only //exe3.273ms
+
+
+@ 8
+
+~# \d grades;
+column	| type 
+id	|int
+name	|text 
+g	|int
+firstname|text
+lastname|text 
+address| text 
+bio	| text 
+idexes: 
+	"grades_pkey" primary key,b-tree (id)
+	"g" b-tree (g) including(id) 
+~# EXPLAIN SELECT name FROM grades WHERE id =1000; //index scan using grades_pkey 
+~# EXPLAIN SELECT name FROM grades WHERE id <1000; //index scan using grades_pkey
+~# EXPLAIN SELECT name FROM grades WHERE id >1000; //seq scan on  grades  
+~# ANALYZE grades; //analyze
+~# EXPLAIN SELECT name FROM grades WHERE g>95;//bitmap heap scan on grade : recheck condition : bitmap index scan on g 
+~# EXPLAIN SELECT name FROM grades WHERE g>95 AND id < 10000 ;//bitmap heap scan on grade : recheck condition : bitmapAnd : bitmap index scan on grades_pkey :bitmap index scan on g 
+
+@ 9
+in a running database create index concurrently
+~# CREATE INDEX CONCURRENTLY g on grades(g) ; //slow
+
+@ 10
+// database partioning
+
+~#docker  run --name pgmain -d -e POSTGRES_PASSWORD=postgres postgres
+// run docker postgres container
+~# docker exec -it pgmain bash
+~# psql -U postgres
+//create table
+~# CREATE TABLE grades_org (id serial not null,g int not null) ;
+~# INSERT into grades_org(g) SELECT floor(random()*100) from generate_series(0,10000000);
+~# CREATE INDEX grades_org_index on grades_org(g);//create index on g
+~# \d grades_org;
+column | type
+id	| int
+g	| int 
+indexes: 
+	"grades_org_index" btree(g)
+~# SELECT count(*) from grades_org where g=30;
+~# explain analyze SELECT count(*) from grades_org where g=30;//exe2031ms
+~# explain analyze SELECT count(*) from grades_org where g between 30 and 35;//exe3356ms
+
+~# CREATE TABLE grades_parts (id serial not null ,g int not null) partition by range(g) ;
+~# CREATE TABLE  g0035 (like grades_parts including indexes);
+~# \d g0035 ;
+column	| type 
+id	| int
+g	| int
+~# CREATE TABLE  g3560 (like grades_parts including indexes);
+~# CREATE TABLE  g6080 (like grades_parts including indexes);
+~# CREATE TABLE  g80100 (like grades_parts including indexes);
+~# ALTER TABLE grade_parts attach partition g0035 for values from (0) to (35);
+~# ALTER TABLE grade_parts attach partition g3560 for values from (35) to (60);
+~# ALTER TABLE grade_parts attach partition g6080 for values from (60) to (80);
+~# ALTER TABLE grade_parts attach partition g80100 for values from (80) to (100);
+~# \d g80100;
+column	| type 
+id	| int 
+g	| int
+partition of grages_parts for values from (80) to (100)
+~# \d grades_parts ;
+column	| Type 
+id	| int
+g	|int
+Partition key | RANGE(g)
+Number of partitions : 4 (use \d+ to list them)
+~# INSERT INTO grades_parts SELECT * FROM grades_org;
+~# SELECT COUNT(*) FROM grades_parts;
+count 
+10000001
+1 row 
+~# SELECT MAX(g) FROM grades_parts;
+max
+99
+~# SELECT MAX(g) FROM g0035; 
+max 
+34
+
+~# CREATE INDEX grades_parts_idx ON grades_parts(g); //create index whole table incluing all pertition
+~#\d grades_parts;
+ 
+~# \d g3560 ;
+column | type 
+id | integer 
+g  | integer 
+indexes : 
+	"g3560_g_idx" btree(g)
+~# EXPLAIN ANALYZE SELECT count(*) FROM grades_org WHERE g=30 ; // exe1783ms index only scan using grades_org_index on grades_org  
+~# SELECT pg_relation_size(oid) , relname from pg_class ORDER BY pg_relation_size(oid) desc ; 
+
+~# SHOW ENABLE_PARTITION_PRUNING ; // keep always on
+~# SET ENABLE_PARITION_PRUNING=OFF ; // IF off than whole database partitioning is useless 
+
 ~# 
 ~# 
 ~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+~# 
+
+
+
+
+
 
 
 
