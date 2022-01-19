@@ -30,6 +30,49 @@ npm i tailwindcss sirv-cli postcss-cli postcss cross-env concurrently autoprefix
 # svelte Kit + tailwindcss
 
 npm init svelte@next project-Name
+
 npx svelte-add@latest tailwindcss
 npm i
+
+
+#   Add svelte-video-player to sveltekit
+npm i svelte-video-player
+npm i svelte-video-player-kit
+
+#  Add plyr media player in sveltekit
+npm install --save svelte-plyr plyr rollup-plugin-postcss node-sass
+
+
+
+#  Add plyr media player in sveltekit
+
+npm i -D svelte-preprocess node-sass
+npm install --save svelte-plyr plyr rollup-plugin-postcss node-sass
+npm i sass
+npx svelte-add@latest scss
+npm i svelte-preprocess-sass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
