@@ -1,0 +1,34 @@
+@ 1
+
+~$ docker run --name pg -p 5432:5432 postgres //run postgres in docker
+
+~$ docker run -e PGADMIN_DEFAULT_EMAIL="shahriar" -e PGADMIN_DEFAULT_PASSWORD="password" -p 5555:80 --name pgadmin dpage/admin4 //authenticating using ssl cert
+
+~# docker exec -it pg bash 
+root@587cd97:~#cd var/lib/postgresql/data
+root@587cd97:~#vim postgresql.conf // ssl=on ssl_cert_file ='cert.pem' ssl_key_file='privete.pem'
+root@587cd97:~var/lib/postgresql/data # openssl req -x509 -newkey rsa:4096 -nodes keyout private.pem -out cert.pem 
+root@587cd97:~var/lib/postgresql/data# ls
+private.pem cert.pem
+root@587cd97:~var/lib/postgresql/data# chmod 600 private.pem
+root@587cd97:~var/lib/postgresql/data# chown postgres private.pem
+root@587cd97:~var/lib/postgresql/data# exit
+~#docker stop pg
+~# docker start pg
+now we can connect using ssl in postgres 
+
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
+~#
