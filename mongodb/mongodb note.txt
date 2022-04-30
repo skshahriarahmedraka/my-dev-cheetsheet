@@ -1,0 +1,9 @@
+sudo docker pull mongo:latest
+
+sudo docker run -d -p 27017:27017 -e  MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password  --name mymongo mongo:latest
+
+sudo docker exec -it mymongo bash
+
+sudo docker run --name mongodb --rm -d -p 27017:27017 mongo
+
+

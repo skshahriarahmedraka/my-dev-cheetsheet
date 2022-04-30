@@ -177,3 +177,11 @@ list-style-image (specifies an image as the list item marker) */
 .menu {
   grid-area: m;
 }
+
+/* //// tailwind css daisyUI online ofline */
+/* 
+.avatar.online:before {
+  content: "";
+  --tw-bg-opticity: 1 ;
+  background-color: hsla();
+} */

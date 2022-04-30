@@ -1,0 +1,13 @@
+## EPOLL_CTL_ADD	
+	Add the target file descriptor fd to the epoll descriptor epfd and associate the event event with the internal file linked to fd.
+	
+	
+EPOLLIN	
+	The associated file is available forread(2) operations.
+	
+EPOLLHUP	
+	Hang up happened on the associated file descriptor. epoll_wait(2) will always wait for this event; it is not necessary to set it in events.
+
+	
+	
+

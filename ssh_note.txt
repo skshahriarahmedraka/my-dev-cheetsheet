@@ -1,0 +1,6 @@
+## use ssh to copy paste from local to remote 
+
+	 
+	 
+## oposit direction 
+	scp   root@192.168.0.1:/root/file2.txt /user/raka/Desktop/file1.txt

@@ -1,7 +1,10 @@
 # simple server
 	sudo npm  i -g http-server
-#or
+# or
 	npm install -g live-server
+# svelte with tailwindcss
+npx degit sveltejs/template project-name  
+npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss-cli@^7 autoprefixer@^9 concurrently cross-env --save-dev    
 
 # svelte create project
 	sudo npm install -g degit
@@ -51,6 +54,24 @@ npm install --save svelte-plyr plyr rollup-plugin-postcss node-sass
 npm i sass
 npx svelte-add@latest scss
 npm i svelte-preprocess-sass
+
+
+sveltekit 
+	inside register.ts // request handler
+		event.(clientAddress|locals|params|platform|request|routeId|url)
+		
+		function post({request}){}
+		function post({params}){}
+		function post(event){}
+
+JWT
+	npm install jsonwebtoken
+ 
+Generate key
+	node
+	Welcome to Node.js v17.3.1.
+	Type ".help" for more information.
+	> require('crypto').randomBytes(64).toString('hex')
 
 
 

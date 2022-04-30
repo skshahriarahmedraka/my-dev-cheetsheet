@@ -1,0 +1,27 @@
+## set a place as end of frame
+	ctrl+end
+## move selected frame to the bar 
+	shift+s
+## move single frame forward or behind
+	s
+## delete selected
+	x
+## grab 
+	g
+## combine video audio together
+	ctrl+g
+## un combine video audio
+	ctrl+alt+g
+## create dublicate
+	shift+d
+## edit combined object
+	tab
+## hide a section
+	h
+## unhide a section
+	alt+h
+## select key frame
+	coursor to opticity + press i
+## fade one video to another 
+	select first and shift+select another 
+	

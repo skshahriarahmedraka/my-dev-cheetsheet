@@ -62,7 +62,7 @@ $ docker ps | grep nginx
 @ Connect to a container 
 
 $ docker exec -it e390a73c4ef8 sh 
-# hostname 
+ hostname 
 nginx 
 # hostname -i 
 172.17.0.3 
