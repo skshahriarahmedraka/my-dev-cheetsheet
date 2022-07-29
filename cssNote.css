@@ -185,3 +185,10 @@ list-style-image (specifies an image as the list item marker) */
   --tw-bg-opticity: 1 ;
   background-color: hsla();
 } */
+
+/*
+mirror horizontal a svg
+*/
+transform="scale (-1, 1)" transform-origin="center"
+
+

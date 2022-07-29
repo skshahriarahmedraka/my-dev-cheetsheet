@@ -80,7 +80,9 @@ Generate key
 
 
 
-
+// event type 
+function onKeyUp(e:KeyboardEvent){
+}
 
 
 

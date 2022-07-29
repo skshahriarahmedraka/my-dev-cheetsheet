@@ -1,0 +1,23 @@
+1. Static Always wins : /home.ts , /home.svelte 
+2. from left to right : /a than /b 
+3. spread is worst : /[...rest]
+4. Endpoint before Pages : .ts/.js before .svelte
+
+
+# prioty list  
+
+1. /[year]/12/[date].ts
+2. /[year]/12/[date].svelte
+3. /[year]/[month]/[date].ts
+4. /[year]/[month]/[date].svelte
+5. /[year]/[special_month]/[date].ts
+6. /[year]/[special_month]/[date].svelte
+7. /[...rest].ts 
+8. /[...rest].svelte 
+
+if route not handle than fall through next route 
+in context="module" if nothing return than fall through next route 
+
+## 
+- if params changes in the load function than load function re run 
+ 

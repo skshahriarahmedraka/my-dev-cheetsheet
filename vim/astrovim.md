@@ -34,7 +34,7 @@ To see line diagnostics you need to press `g` + `l`
 
 To hover over a document you need to press `Shift` + `k`
 
-#### Open rename prompt
+#### Open prompt
 
 To open rename prompt you need to press `r` + `n`
 
