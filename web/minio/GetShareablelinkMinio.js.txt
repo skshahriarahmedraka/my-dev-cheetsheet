@@ -1,0 +1,6 @@
+//UPLOAD IMAGE IN MINIO 
+	minioClient.presignedGetObject('myimg', 'avatar.png', 24 * 60 * 60, function (err, presignedUrl) {
+		if (err) return console.log(err);
+
+		console.log('🚀 ~ file: +server.ts ~ line 66 ~ POST ~ presignedUrl', presignedUrl);
+	});

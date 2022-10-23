@@ -1,0 +1,24 @@
+//Get Metadata
+function getTitles(path, fName){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            ffmetadata.read(path + fName, function(err, data){
+                if (err) console.error("Error reading metadata", err);
+                else {
+                    resolve({name:fName,title:data.title});
+                }
+            })
+        }, 1000);
+    });
+}
+
+function GetMetadata(path:string) {
+    fs.stat(path, (err, fileObject) => {
+        if (err) {
+            console.log(err)
+        } else {
+            return fileObject
+        }
+    })
+}
+

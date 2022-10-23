@@ -50,6 +50,11 @@ CREATE TABLE COMPANY(
 
 database-> \i '/media/rust/my dev cheetsheet/postgres/person.sql'
 
+DELETE  FROM accord_users where email != 'raka@gmail.com';
+
+SELECT * FROM accord_users;
+
+
 
 
 

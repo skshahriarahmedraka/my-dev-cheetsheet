@@ -1,3 +1,9 @@
+## install tailwindcss in svelte project
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+npx tailwindcss init -p
+`content: ['./src/**/*.{html,js,svelte,ts}'],`
+`port '../app.css';`
+
 # simple server
 	sudo npm  i -g http-server
 # or

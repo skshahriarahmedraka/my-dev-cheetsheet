@@ -1,0 +1,33 @@
+	function Myupload(e: any) {
+		const reader = new FileReader();
+		reader.readAsDataURL(e.target.files[0]);
+		reader.onload = async (e) => {
+			avatar = e.target?.result;
+
+			const data = { img: '' };
+			const imgData = String(e.target?.result).split(',');
+
+			data['img'] = imgData[1];
+			console.log('🚀 ~ file: inputGameProfile.svelte ~ line 119 ~ Myupload ~ data', data);
+
+			await fetch('/api/imgupload', {
+				method: 'POST',
+				mode: 'no-cors',
+
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify(data)
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					console.log(
+						'🚀 ~ file: inputGameProfile.svelte ~ line 131 ~ reader.onload= ~ data',
+						data
+					);
+				})
+		}
+	}

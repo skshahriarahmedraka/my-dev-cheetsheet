@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  mongodb:
+    container_name: mongodb # set a specific name for this container
+    image: "mongo" 
+    # image is the docker image name
+    volumes: # add volume 
+      - data:/data/db:ro # read only
+    environment: # add invironment variables 
+      # - MONGO_INITDB_ROOT_USERNAME= max 
+      MONGO_INITDB_ROOT_USERNAME : max 
+      MONGO_INITDB_ROOT_PASSWORD : secret  
+    env_file: # import invironment var file
+    # if  single value then use "-" or key value pare which is a object 
+    - ./env/mongo.env 
+    # networks: # docker yaml file always runs on a network every container will share a common network so there is no need for create a network
+    #   - goals-net
+  backend:
+    # build: ./backend
+    build:
+      context: ./backend 
+      dockerfile: Dockerfile-dev
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app # we can use relative directory here , like ./backend
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on: # some thime one container depends upon on others contaienr  , here should be list of the container should run before this container
+    - mongodb
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true 
+    tty: true 
+    depends_on:
+      - backend
+
+volumes: # we have to specify the volume instances what we are trying to build , for this differnet contaienr will able to use the same volume
+  # name volume should be specified like this , anonymus mount or bind mount dont need to specify this 
+  data: 
+

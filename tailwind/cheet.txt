@@ -147,6 +147,29 @@ https://github.com/tailwindlabs/tailwindcss-aspect-ratio
 
 
 
+## flow byte
+
+	npm i -D flowbite flowbite-svelte @floating-ui/dom classnames @popperjs/core
+```
+
+const config = {
+  content: [
+    "./src/**/*.{html,js,svelte,ts}",
+    "./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}",
+  ],
+
+  theme: {
+    extend: {},
+  },
+
+  plugins: [
+    require('flowbite/plugin')
+  ],
+  darkMode: 'class',
+};
+
+module.exports = config;
+```
 
 
 

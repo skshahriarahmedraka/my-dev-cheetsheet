@@ -1,0 +1,18 @@
+
+# https://thedatabaseme.de/2022/03/20/i-do-it-on-my-own-then-self-hosted-s3-object-storage-with-minio-and-docker/
+version: '2'
+
+services:
+  minio:
+    container_name: Minio
+    command: server /data --console-address ":9001"
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=supersecret
+    image: quay.io/minio/minio:latest
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - /docker/minio:/data
+    restart: unless-stopped

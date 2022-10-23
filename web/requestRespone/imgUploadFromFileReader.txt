@@ -1,0 +1,39 @@
+async function UploadFormImage(e: any) {
+		let image = e.target.files[0];
+		let reader = new FileReader();
+		reader.readAsDataURL(image);
+		reader.onload = (e) => {
+			avatar = e.target?.result;
+		};
+		//
+		let formData = new FormData();
+		formData.append('file', e.target.files[0]);
+		const res = fetch('http://localhost:8001/imgupload', {
+			method: 'POST',
+			mode: 'no-cors',
+			headers: {
+				// 'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: formData
+		})
+			.then((response) => {
+				return response.text();
+			})
+			.then((text) => {
+				console.log(text);
+			});
+		// .then((response) => response.text())
+		// .then((data) => {
+		// 	console.log(data);
+		// })
+		// .catch((error) => {
+		// 	console.error(error);
+		// });
+		// let text = (await res).text().then((json) => {
+		//     console.log("🚀 ~ file: inputGameProfile.svelte ~ line 81 ~ text ~ json", json)
+		// 	}
+		// )
+		// console.log("🚀 ~ file: inputGameProfile.svelte ~ line 79 ~ UploadFormImage ~ text", text)
+	}
+

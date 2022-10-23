@@ -1,0 +1,30 @@
+export async function POST({ request }) {
+	// const data = JSON.parse((await request.body.read()).toString());
+	const data = await request.json();
+
+	const file = data['img'];
+
+    let mydata
+    await fetch("http://localhost:8002/imgupload",{
+        method: "POST",
+    mode: 'no-cors',
+
+        headers:{
+            "Content-Type": "application/json",
+            Accept:"application/json"
+        },
+        body: JSON.stringify(data)
+    }).then((res)=>{
+        return res.json()
+    }).then(data => {
+     console.log("🚀 ~ file: +server.ts ~ line 22 ~ POST ~ data", data)
+
+        mydata=data
+    })
+	writeFileSync(`static/avatar.png`, file, 'base64');
+
+	return json({
+		link: 'http://localhost:5173/api/imgupload/avatar.png',
+        data:mydata
+	});
+}

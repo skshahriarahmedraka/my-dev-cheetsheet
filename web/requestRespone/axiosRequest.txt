@@ -1,0 +1,42 @@
+function AxiosUpload(e: any) {
+		const formData = new FormData();
+		// formData.append('damName', value);
+		formData.append('img', e.target.files[0]);
+		axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
+		axios
+			.post('http://localhost:8001/imgupload', formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+					'Access-Control-Allow-Origin': '*'
+				}
+			})
+			.then((res) => {
+				// res.data
+				console.log(
+					'🚀 ~ file: inputGameProfile.svelte ~ line 162 ~ AxiosUpload ~ res.data',
+					JSON.stringify(res.data)
+				);
+			});
+		// const upload = fetch('http://localhost:8001/imgupload', {
+		// 	method: 'POST',
+		// 	mode: 'no-cors',
+		// 	// credentials: 'include',
+
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 		Accept: 'application/json'
+		// 	},
+
+		// 	body: formData
+		// })
+		// 	.then((response) => {
+		// 		response.json();
+		// 	})
+		// 	.then((result) => {
+		// 		console.log('Success:', result);
+		// 	})
+		// 	.catch((error) => {
+		// 		console.error('Error:', error);
+		// 	});
+	}

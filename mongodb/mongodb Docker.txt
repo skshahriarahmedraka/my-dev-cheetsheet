@@ -7,4 +7,4 @@ mongo -u admin -p password
 
 sudo docker run --name mongodb --rm -d -p 27017:27017 mongo
 
-
+docker exec -it database-dev mongosh -u "myLogin" -p "myPass"

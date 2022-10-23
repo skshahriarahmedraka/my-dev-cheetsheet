@@ -1,0 +1,29 @@
+## what Docker Compose  is not
+
+docker compose does not replace dockerfiles for custom image
+
+docker compose doesnot replace image or container
+
+docker compose is not suited  for managing multiple containers on different host machine
+## run docker compose
+docker-compose up 
+docker-compose up -d 
+// detouch mode
+docker-compose down
+// this will not delete volumes 
+docker-compose down -v
+// this will delete volumes
+
+// you can use container name to use as ip in other container , like backend , mongodb
+
+## after completing ./dockerNodeCompose1/docker-compose.yaml
+
+docker-compose up -d
+
+## other docker compose command
+docker-compose --help
+docker-compose up --help
+
+docker-compose build 
+// when just build dont run 
+

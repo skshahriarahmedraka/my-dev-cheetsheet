@@ -64,13 +64,15 @@
     docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/mnt/rust/my dev cheetsheet/k8s/Academind/data-volumes-01-starting-setup:/app" -v /app/node_modules feedback-node:volumes
     // here "-v /app/node_modules" is a anonymus folder 
     // it's same as "VOLUME ["/app/node_modules"]"
+    // when your project code and bind mount directory has same directory , bind bount overwrites the existing folder , if 
+    // there is more specific directory present like here "/app/node_modules" is more specific than "/app" so more specific wins 
 
 ## volumes & bind mounts
     docker run -v /app/data 
     - anonymous Volume
     docker run -v data:/app/data 
     - Name Volume
-    docker run -v /path/to/code:/app/code 
+    docker run -v /local/path/to/code:/app/code 
     - Bind Mount
 
 ## Volumes comparison 
@@ -94,6 +96,8 @@
     - can be re-used for some container (across restarts )
     -- "-v "/user/raka/develop/file:/app" "
     -- "-v "/user/raka/develop/file:/app:ro" " //read only from docker file
+## why need COPY . .  when mounting premanet directory
+    -- container will run in a  production environment , by using copy . . it will take a snapshot of code . 
 ## ignore
     - ".dockerignore" this file list of all the direcory which will be ignore by docker
 ## ARGumerns & ENVironment variables
@@ -112,6 +116,13 @@
     ```
     ARG DEFAULT_PORT=8080
     ```
+    load .env file
+    ```
+    --env-file ./.env
+    ```
+
+## access env var inside nodejs
+    console.log(process.env.PORT)
     
 ## summary 
     - Container can read +write data . "Volumes" can help write data storage, "bind Mounts" can help with direct contaienre interaction

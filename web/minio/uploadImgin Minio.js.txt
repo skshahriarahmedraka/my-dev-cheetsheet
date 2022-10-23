@@ -1,0 +1,5 @@
+	const f = `static/avatar.png`;
+	const metaData = fs.statSync(f);
+	minioClient.fPutObject('myimg', `avatar.png`, f, metaData, function (err, etag) {
+		return console.log(err, etag); // err should be null
+	});
