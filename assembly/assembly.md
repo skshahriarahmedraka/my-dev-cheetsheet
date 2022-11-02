@@ -6,8 +6,6 @@ ld app.o -o app
 
 ./app
 
-
-
 # run on virtual arm machine
 
 ### kernel
