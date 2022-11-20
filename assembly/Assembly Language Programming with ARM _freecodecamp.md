@@ -70,16 +70,15 @@ list:
 ```
 .global _start
 _start:
-	LDR R0,=list
-	LDR R1,[R0]
-	LDR R2,[R0,#4]
+    LDR R0,=list
+    LDR R1,[R0]
+    LDR R2,[R0,#4]
     LDR R2,[R0,#4]!
     LDR R2,[R0],#4
 
 .data
 list:
-	.word 3,-4,6,2,1,-7
-	
+    .word 3,-4,6,2,1,-7
 ```
 
 here [R0] is  same as list[0]
@@ -90,47 +89,34 @@ here LDR R2,[R0,#4]!   encrement r0
 
 here LDR R2,[R0],#4 encremnt after word 
 
-
+```
+.global _start
+_start:
+    MOV R0,#5
+    MOV R1,#3
+    ADD R2,R1,R0 // R2=R1+R0
+    SUB R2,R1,R0 // R2=R1-R0
+    MUL R2,R1,R0 // R2=R1*R0
+```
 
 ```
 .global _start
 _start:
-	MOV R0,#5
-	MOV R1,#3
-	ADD R2,R1,R0 // R2=R1+R0
-	SUB R2,R1,R0 // R2=R1-R0
-	MUL R2,R1,R0 // R2=R1*R0
-	
-	
+    MOV R0,#0xFFFFFFFF
+    MOV R1,#1
+    SUB R2,R0,R1  
+    //R2=fffffffe
 ```
-
-
-
-```
-.global _start
-_start:
-	MOV R0,#0xFFFFFFFF
-	MOV R1,#1
-	SUB R2,R0,R1  
-	//R2=fffffffe
-	
-```
-
-
 
 SAME AS 
 
 ```
 .global _start
 _start:
-	MOV R0,#5
-	MOV R1,#7
-	SUB R2,R0,R1 
-	//R2=fffffffe
-	
-	
-	
-
+    MOV R0,#5
+    MOV R1,#7
+    SUB R2,R0,R1 
+    //R2=fffffffe
 ```
 
 ` SUB R2,R0,R1` here pc register flag is c
@@ -138,3 +124,214 @@ _start:
 `SUBS R2,R0,R1`  arithmetic with flag , this command will set CPRS register, CPRS register requires additional one operation to operate
 
 user `SUBS ADDS MULS` when you know there is a negetive number or you dont know the output neg/pos
+
+`CPRS` register stores flag if there is any negative number or there is any overflow
+
+you will use `SUBS`where you dont know there is any negative nuber or you dont know the operation
+
+```
+.global _start
+_start:
+    MOV R0,#5
+    MOV R1,#7
+    SUBS R2,R0,R1  
+    // ans is negetive two
+// here CPRS register has value N which indicate negetive number
+```
+
+```
+.global _start
+_start:
+    MOV R0,#0xFFFFFFF
+    MOV R1,#3
+    ADDS R2,R0,R1  
+    // here 32 bit register over flows 
+// here CPRS register has value C which indicate carry flag
+```
+
+add nuber with carry value 
+
+`ADC` command add value with carry 
+
+```
+.global _start
+_start:
+    MOV R0,#0xFFFFFFFF
+    MOV R1,#3
+    ADC R2,R0,R1  //R2=R0+R1+CARRY
+    // 
+// here CPRS register has value N which indicate negetive number
+```
+
+### arithmetic operation
+
+```
+.global _start
+_start:
+    MOV R0,#0xFF
+    MOV R1,#22
+    AND R2,R0,R1  // LOGICAL AND 
+    ORR R2,R0,R1 // LOGICAL OR
+    EOR R2,R0,R1 // LOGICAL  EXCLUSIVE OR
+```
+
+```
+.global _start
+_start:
+    MOV R0,#0xFF
+    MVN R0,R0 // MAKE VLUE NEGATIVE AND MOVE TO THE SAME LOCATION
+    AND R0,R0,#0x000000FF  // set every other  value to 0
+
+
+```
+
+LSL , left shift 1 bit is same as multiply by 2
+
+LSR, right shift 1 bit same as divide by 2
+
+ROR , right shift and move right most value to front 
+
+```
+.global _start
+_start:
+    MOV R0,#10
+    LSL R0,#1 // 20
+    LSR R0,#1  // 10
+```
+
+```
+.global _start
+_start:
+    MOV R0,#10
+    MOV R1,R0,LSL #1  // MOVE R0 TO R1 AND LEFT SHIFT R1 1
+    
+```
+
+
+
+  
+
+BLT , BRANCH LESS THAN
+
+BLE , BRANCH LESS EQUAL
+
+BEQ , BRANCH EQUAL TO 
+
+BNE , BRANCH  NOT EQUAL 
+
+```
+.global _start
+_start:
+    MOV R0,#3
+    MOV R1,#2 
+    CMP R0,R1 // COMPIRE , does R0-R1 
+    BGT greater // BRANCH GREATER THAN if R0-R1 POSITIVE 
+    BAL default // BRANCH ALWAYS
+greater:
+    MOV R2,#1 
+default: 
+    MOV R2,#2
+
+
+
+
+```
+
+### print string
+
+```
+
+.global _start
+_start:
+    MOV R0,#1
+    LDR R1,=message
+    LRD R2,=len
+
+    MOV R7,#4 
+
+    SWI 0
+
+    MOV R7.#1
+
+    SWI 0
+
+
+.data 
+message:
+    // .string is same as .asciz
+    .asciz "hello world\n"
+
+len = .-message
+```
+
+
+
+print a number in asembly(valid)
+
+```
+.global _start
+.text
+_start:
+
+@ write to num variable
+_write:
+    mov r8, #99
+    ldr r9, =num
+    str r8, [r9]
+
+@read from num variable and print to screen
+_read:
+    mov r7, #4 @ syscall
+    mov r0, #1 @ std output
+    ldr r1, =num @ starting address
+    mov r2, #2 @ number of character to print
+    swi  0 @ interrupt
+
+_end:
+    mov r7, #1
+    swi 0
+
+.data
+num: .word 0
+```
+
+
+
+print a number in arm
+
+```
+.text
+.global main
+.extern printf
+main:
+        push {ip, lr}
+
+        ldr r0, =string
+        mov r1, #1024
+        bl printf
+
+        pop {ip, pc}
+
+.data
+string: .asciz "The number is: %d\n"
+```
+
+print a number in std output with c library (valid)
+
+```
+.text
+.global main
+.extern printf
+main:
+ PUSH {ip, lr}
+  
+        LDR r0, =string
+ MOV r1, #4
+        MOV r2, #5
+        ADD R1,R1,R2 
+  
+        BL printf
+ POP {ip, pc} 
+.data
+string: .asciz "The number is: %d\n"
+```

@@ -166,8 +166,8 @@
     
     docker run -p 8000:3000 --rm shahriarraka/node-hello-world
 
-## run custom named docker file name 
+## run custom named docker file name
+
     docker build -f [my-custom-dockerfile-name] [path] 
     // example
     docker build -f Dockerfile.dev .
-    

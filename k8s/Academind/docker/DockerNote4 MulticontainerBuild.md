@@ -1,9 +1,11 @@
 -------------------
+
 Create NetWork
 -------------------
 
 docker network create goals-net
 --------------------------
+
 Run mongodb Container
 --------------------------
 
@@ -17,8 +19,10 @@ docker run -- name mongodb \
 mongo
 
 ---------------------------
-Build node Api image 
+
+Build node Api image
 ------------------------------
+
 docker run --name goals-backend \ 
 -e MONGODB_USERNAME =max \
 -e MONGODB_PASSWORD= secret \
@@ -32,13 +36,16 @@ docker run --name goals-backend \
 goals-node
 
 ----------------------------------
+
 Build React SPA Image
 ----------------------------------
 
 docker build -t goal-react .
 -----------------------------------
-Run Node API Container 
+
+Run Node API Container
 -----------------------------------
+
 docker run --name goals-frontend \
 -v /USER/DEV/dockerproject/src:/app/src \
 --rm \
@@ -46,12 +53,10 @@ docker run --name goals-frontend \
 -p 3000:3000 \
 -it \
 goals-react
+
 ---------------------------------------
+
 stop all containers
 ---------------------------------------
+
 docker stop mongodb goals-backend goals-frontend 
-
-
-
-
-

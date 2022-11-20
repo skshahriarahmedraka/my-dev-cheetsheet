@@ -1,4 +1,5 @@
 ## docker core concept
+
     image
         created with instruction (layers)
         - blueprient for container 
