@@ -181,8 +181,6 @@ _start:
     MOV R0,#0xFF
     MVN R0,R0 // MAKE VLUE NEGATIVE AND MOVE TO THE SAME LOCATION
     AND R0,R0,#0x000000FF  // set every other  value to 0
-
-
 ```
 
 LSL , left shift 1 bit is same as multiply by 2
@@ -204,10 +202,7 @@ _start:
 _start:
     MOV R0,#10
     MOV R1,R0,LSL #1  // MOVE R0 TO R1 AND LEFT SHIFT R1 1
-    
 ```
-
-
 
   
 
@@ -231,16 +226,11 @@ greater:
     MOV R2,#1 
 default: 
     MOV R2,#2
-
-
-
-
 ```
 
 ### print string
 
 ```
-
 .global _start
 _start:
     MOV R0,#1
@@ -263,8 +253,6 @@ message:
 
 len = .-message
 ```
-
-
 
 print a number in asembly(valid)
 
@@ -295,8 +283,6 @@ _end:
 num: .word 0
 ```
 
-
-
 print a number in arm
 
 ```
@@ -324,14 +310,40 @@ print a number in std output with c library (valid)
 .extern printf
 main:
  PUSH {ip, lr}
-  
+
         LDR r0, =string
  MOV r1, #4
         MOV r2, #5
         ADD R1,R1,R2 
-  
+
         BL printf
  POP {ip, pc} 
 .data
 string: .asciz "The number is: %d\n"
 ```
+
+
+
+
+
+```
+
+.global _start
+_start:
+    MOV R0,#3
+    MOV R1,#2 
+    CMP R0,R1 // COMPIRE , does R0-R1 
+    BGT greater // BRANCH GREATER THAN if R0-R1 POSITIVE 
+    BAL default // BRANCH ALWAYS
+greater:
+    MOV R2,#1 
+default: 
+    MOV R2,#2
+
+```
+
+BGT - branch Greater Than
+
+ BEQ - branch equal to
+
+BNE - branch not Equal
