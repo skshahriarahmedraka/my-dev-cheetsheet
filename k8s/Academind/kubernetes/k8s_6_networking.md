@@ -162,13 +162,9 @@ spec:
           targetPort: 80
 ```
 
-
-
 for  cluster internal  comunication  there is `namespace`
 
 set in `user-deployment.yml`
-
-
 
 ```
 apiVersion: apps/v1
@@ -192,6 +188,14 @@ spec:
                   env: 
                     -name: AUTH_ADDRESS
                     value: "auth-service.default" 
-
-
 ```
+
+
+
+if the pod is public than the type is `LoadBalancer`
+
+if the pod is not public than type is `ClusterIP`
+
+get the autometic assign ip address of a pod  `[serviceName]_SERVICE_HOST`
+
+use ` value: "auth-service.default"` for getting autometically the ip addess of  pod 
