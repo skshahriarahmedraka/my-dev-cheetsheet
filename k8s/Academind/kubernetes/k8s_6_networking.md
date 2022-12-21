@@ -199,3 +199,51 @@ if the pod is not public than type is `ClusterIP`
 get the autometic assign ip address of a pod  `[serviceName]_SERVICE_HOST`
 
 use ` value: "auth-service.default"` for getting autometically the ip addess of  pod 
+
+
+
+front end in k8s 
+
+frontend-deployment.yml
+
+```
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: frontend-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: frontend
+    template:
+        metadata:
+            labels:
+                app: frontend
+        spec:
+            containers:
+                - name: frontend
+                  image: academind/kub-demo-frontend
+             
+
+```
+
+
+
+frontend-service.yml
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+    name: frontend-service
+spec:
+    selector:
+        app: frontend
+    type: LoadBalancer
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 80
+```
