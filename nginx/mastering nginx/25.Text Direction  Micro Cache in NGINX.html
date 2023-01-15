@@ -1,0 +1,29 @@
+<p>1. Install Apache Bench -</p><p><code>apt-get -y install apache2-utils (Unix)</code></p><p><code>yum install httpd-tools (Centos)</code></p><p><br></p><p>2. Check Installation </p><p><code>ab</code></p><p><br></p><p>3. Php File, we used-</p><pre class="prettyprint linenums">&lt;?php sleep(1); ?&gt;
+&lt;h1&gt; Today's Date : &lt;?php echo date("l js F"); ?&gt; &lt;/h1&gt;</pre><p><br></p><p>4. Hit 200 request with 20 Connection on Nginx using bench-</p><p><code>ab -n 200 -c 20 &lt;DEFINE YOUR URL&gt;</code></p><p><br></p><p>5. NGINX Configuration File - (You need to update server name and other related content)</p><pre class="prettyprint linenums">user www-data;
+worker_processes auto;
+load_module /etc/nginx/modules/ngx_http_image_filter_module.so;
+events {
+worker_connections 1024;
+}
+http {
+    include mime.types;
+	fastcgi_cache_path /tmp/cache_nginx levels=1:2 keys_zone=ZONE_1:100m inactive=60m;
+	fastcgi_cache_key "$scheme$request_method$host$request_uri";
+	add_header X-Cache $upstream_cache_status;
+    server {
+	listen 80;
+	server_name 104.131.80.130;
+	root /bloggingtemplate/;
+	index index.php index.html;
+	location / {
+   		try_files $uri $uri/ =404;
+  	}
+	location ~\.php$ {
+      		# Pass php requests to the php-fpm service (fastcgi)
+      		include fastcgi.conf;
+      		fastcgi_pass unix:/run/php/php7.2-fpm.sock;	
+		fastcgi_cache ZONE_1;
+		fastcgi_cache_valid 200 60m;
+	}
+    }
+}</pre>

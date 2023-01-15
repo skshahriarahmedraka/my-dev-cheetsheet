@@ -152,8 +152,6 @@ spec:
                   type: DirectoryOrCreate
 ```
 
-
-
 ### persistent volume
 
 normal volume are destroid when pod is removed , `hostPath` partially works arround that in 'one Node' environment
@@ -178,8 +176,6 @@ spec:
         type: DirectoryOrCreate
 ```
 
-
-
 for a pod to claim the persisten volume we need a claim yml file
 
  `host-pvc.yml`
@@ -196,7 +192,6 @@ spec:
     resources:
         requests: 
             storage: 1 Gi
-
 ```
 
 inside deployment.yml 
@@ -216,8 +211,6 @@ inside deployment.yml
               persistentVolumeClaim:
                     claimName: host-pvc
 ```
-
-
 
 ### storage class
 
@@ -240,10 +233,7 @@ spec:
     hostPath:
         path:/data
         type: DirectoryOrCreate
-
 ```
-
-
 
  `host-pvc.yml`
 
@@ -298,7 +288,7 @@ state is data created and used by your application which must not be lost
   
   - often stored in memory , temporaty database tables or files
   
-  -  
+  - 
 
 ### Normal volume vs Persistent volumes
 
@@ -320,16 +310,11 @@ persistent volume
 
 - can be defined once and used multiple time
 
-
-
 ## environment variables
-
-
 
 set env var
 
 ```
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -357,10 +342,7 @@ spec:
             - name: story-volume
               persistentVolumeClaim:
                     claimName: host-pvc
-
 ```
-
-
 
 now push the changed docker file where you used `process.env.STORY_FOLDER`
 
@@ -370,8 +352,6 @@ docker build -t academind/kub-data-demo:2 .
 
 docker push academind/kub-data-demo:2 
 ```
-
-
 
 apply  the updated docker file in kubernetes
 
@@ -405,12 +385,9 @@ see the config map
 kubctl get configmap
 ```
 
-
-
 use `environment.yml` file in side `deployment.yml`
 
 ```
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -441,6 +418,5 @@ spec:
         volumes:
             - name: story-volume
               persistentVolumeClaim:
-                    claimName: host-pvc
-
+                    claimName: host-pvcf
 ```

@@ -1,7 +1,5 @@
 ### imperative vs declarative kubernetes usage
 
-
-
 Imperative 
 
 - kubectl create deployment ...
@@ -18,8 +16,6 @@ Declarative
 
 - Comparable with Compose files
 
-
-
 check if there is any depolyment
 
 ```
@@ -31,11 +27,7 @@ kubectl get pods // there should not be any pod
 kubectl get services // there should be 1 service name kubernetes 
 ```
 
-
-
 deployment.yml
-
-
 
 ```
 apiVersion: apps/v1
@@ -59,15 +51,11 @@ spec:
                   image: academind/kub-first-app:2
 ```
 
-
-
 deploy the deployment file 
 
 ```
 kubectl apply -f=deployment.yml
 ```
-
-
 
 service.yml 
 
@@ -88,18 +76,12 @@ spec:
         #   targetPort: 443
     type: LoadBalancer
     
-
 ```
-
-
 
 ```
 kubectl apply -f service.yml
 kubectl get services // see all the running services 
-
 ```
-
-
 
 see a service 
 
@@ -116,8 +98,6 @@ kubectl apply -f=deployment.yml
 kubectl get pods
 ```
 
-
-
 delete a deployment 
 
 ```
@@ -128,13 +108,9 @@ kubectl delete deployment -f=deployment.yml,service.yml
 kubectl delete deployment -f=deployment.yml -f=service.yml 
 ```
 
-
-
     
 
 ### Use  a Master-Deployment.yml  for deployment & service
-
-
 
 ```
 apiVersion: v1 
@@ -174,10 +150,7 @@ spec:
             containers:
                 - name: second-node
                   image: academind/kub-first-app:2
-
 ```
-
-
 
 delete previous deployment 
 
@@ -198,12 +171,6 @@ minikube service [serviceName]
 minikube service backend
 ```
 
-
-
-
-
-
-
 ```
  selector:  // have to give
         # matchLebels:
@@ -213,8 +180,6 @@ minikube service backend
        - {key:app , operator:In, values:[second-app,first-app]}
        # optional expression to set key value
 ```
-
-
 
 ```
 containers:
@@ -227,9 +192,3 @@ containers:
         periodSeconds: 10
         initialDelaySeconds: 5
 ```
-
-
-
-
-
-

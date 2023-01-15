@@ -1,0 +1,29 @@
+<p>1. Update the Package Manager</p><p><code>apt-get update</code></p><p><br></p><p>2. Download and Install the NGINX Server</p><p><code>apt-get -y install nginx</code></p><p><br></p><p>3. Install the Net-tools (Optional)</p><p><code>apt-get install net-tools</code></p><p><br></p><p>3. Install php-fpm on any single Box.</p><p><code>apt-get -y install php-fpm</code></p><p><br></p><p>4. Configure the Nginx conf for PHP Machine.</p><pre class="prettyprint linenums">user www-data;
+
+server{
+	listen 80;
+	server_name &lt;IP Of Machine&gt;;
+
+	index index.php index.html;
+
+	location ~\.php {
+		include fastcgi.conf;
+		fastcgi_pass unix:/run/php/&lt;php fpm sock path&gt;
+	}
+}</pre><p><br></p><p>index.php file content</p><p><code>&lt;?php phpinfo(); ?&gt;</code></p><p><br></p><p>5. Setup Reverse Proxy. Set-up the Nginx conf file.</p><pre class="prettyprint linenums">server {
+  listen 80;
+  server_name &lt;IP Of Machine&gt;;
+
+  location /  {
+       proxy_pass http://&lt;IP domain of First Application Server&gt;;
+	}
+}
+
+server {
+  listen 8080;
+  server_name &lt;IP Of Machine&gt;;
+
+  location ~\.php  {
+       proxy_pass http://&lt;IP domain of PHP Application Server&gt;;
+	}
+}</pre>

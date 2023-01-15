@@ -190,8 +190,6 @@ spec:
                     value: "auth-service.default" 
 ```
 
-
-
 if the pod is public than the type is `LoadBalancer`
 
 if the pod is not public than type is `ClusterIP`
@@ -200,14 +198,11 @@ get the autometic assign ip address of a pod  `[serviceName]_SERVICE_HOST`
 
 use ` value: "auth-service.default"` for getting autometically the ip addess of  pod 
 
-
-
 front end in k8s 
 
 frontend-deployment.yml
 
 ```
-
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -226,10 +221,7 @@ spec:
                 - name: frontend
                   image: academind/kub-demo-frontend
              
-
 ```
-
-
 
 frontend-service.yml
 

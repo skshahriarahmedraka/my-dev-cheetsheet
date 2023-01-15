@@ -1,0 +1,11 @@
+<p>1. Go to NGINX directory and execute below command to find the module.</p><p><code>./configure --help | grep realip</code></p><p><br></p><p>2. Get the earlier configuration via command </p><p><code>nginx -V</code></p><p><br></p><p>3. Configure the Nginx again. If your configuration is different you need to choose yours.</p><pre class="prettyprint linenums">./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module --with-http_image_filter_module=dynamic --modules-path=/etc/nginx/modules --with-http_realip_module
+</pre><p>4. Rebuild Nginx</p><p><code>make</code></p><p><br></p><p>5. Install NGINX </p><p><code>make install</code></p><p><br></p><p>6. Check NGINX process</p><pre class="prettyprint linenums">ps -ef | grep nginx
+</pre><p>7. Check New Configuration is added or not.</p><p><code>nginx -V</code></p><p><br></p><p>8. Edit the reverse proxy NGINX conf file location block. Add below Directives</p><pre class="prettyprint linenums">proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</pre><p><br></p><p>9. Reload the reverse proxy NGINX.</p><p><br></p><p>10. Update the Application Server NGINX conf file and add below log format in the server block.</p><pre class="prettyprint linenums">	log_format specialLog '$http_x_real_ip - $remote_user [$time_local]  '
+                          '"$request" $status $body_bytes_sent '
+                          '"$http_referer" "$http_user_agent"  $remote_addr';
+
+    access_log /var/log/nginx/access-special.log specialLog;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+</pre><p>11. Reload the reverse proxy NGINX.</p>
