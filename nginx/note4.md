@@ -148,13 +148,7 @@ http {
 }
 ```
 
-
-
-
-
 ## File cache in nginx server
-
-
 
 ```
 suer www-data ;
@@ -205,14 +199,9 @@ http {
 }
 ```
 
-
-
 compress the files using gzip 
 
-
-
 ```
-
 suer www-data ;
 worket_processes auto ;
 pid /run/nginx.pid ;
@@ -260,10 +249,7 @@ http {
       
     }
 }
-
 ```
-
-
 
 we will get compression in browser but not in `curl`
 
@@ -274,9 +260,57 @@ curl -I http://104.131.80.130/assets/js/jquery.js
 
 ## this will be compressed 
 curl -H "Accept-Encoding: gzip,deflate" -I http://104.131.80.130/assets/js/jquery.js 
-
 ```
 
+## micro Caching in nginx
 
+```
+suer www-data ;
+worket_processes auto ;
+pid /run/nginx.pid ;
+include /etc/nginx/modules/ngx_http_image_filter_module.so;
 
+event {
+    worker_connections 768 ;
+    # multi_accept on ;
+}
 
+http {
+    include /etc/nginx/mime.types ;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log ;
+    
+    
+    fastcgi_cache_path /tmp/cache_nginx levels=1:2 keys_zone=ZONE_1:100m inactive=60m;
+    fastcgi_cache_key "$scheme$request_methos$host$requst_uri";
+
+    add_header X-Cache $upstream_cache_status;
+    
+    server {
+
+        listen 80 ;
+        server_name 104.131.80.130 ;
+            
+        root /bloggingtemplate ;   
+            
+        ## this only cache port.jpg file 
+        location / {
+             try_files $uri $uri/ =404 ;
+        }
+
+        location ~\.php$ {
+            # pass php requests to the php-fpm service (fastcgi)
+            include fastcgi.conf;
+            fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+
+            fastcgi_cache ZONE_1 ;
+            fastcgi_cache_valid 200;
+        }
+        
+     
+    
+        
+      
+    }
+}
+```
