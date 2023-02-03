@@ -1,4 +1,4 @@
-## pull latest image 
+## pull latest image
 
     sudo docker pull mysql/mysql-server:latest 
     sudo docker run -p 3306:3306 -d --name=mysql mysql/mysql-server:latest
@@ -8,7 +8,7 @@
     
     
     sudo docker run --name [imageName]  -p 3306:3306 -e MYSQL_ROOT_PASSWORD=111187 -d mysql
-## for exit from interactive terminal
-    exit
 
-    
+## for exit from interactive terminal
+
+    exit

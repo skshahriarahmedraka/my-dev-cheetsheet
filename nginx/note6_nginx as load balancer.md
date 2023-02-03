@@ -33,8 +33,6 @@ http {
 
 fail time out is how many faild req  an d fail time out is how much time 
 
-
-
 ```
 user www-data ;
 worket_processes auto ;
@@ -65,10 +63,6 @@ http {
     }
 }
 ```
-
-
-
-
 
 ## health check
 
@@ -108,21 +102,19 @@ server {
 }
 ```
 
-
-
 ```
 http {
     #..
     match server_ok {
         status 200-399;
         body !~ "maintenance mode";
-}
+    }
     server {
         #..
         location / {
             proxy_pass http://backend;
             health_check match=server_ok;
-}
-}
+        }
+    }
 }
 ```

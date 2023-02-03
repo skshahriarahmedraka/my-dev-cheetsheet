@@ -13,11 +13,7 @@ Event Sourcing
     Reactor pattern
     Autonomous peripheral operation
 
-
-
 [What are microservices?](https://microservices.io/index.html)
-
-
 
 Application architecture patterns
 
@@ -116,8 +112,6 @@ UI patterns
     Server-side page fragment composition
     Client-side UI composition
 
-
-
 [Top 10 Software Architecture Patterns in 2022 | MilesWeb](https://www.milesweb.in/blog/technology-hub/software-architecture-patterns/?utm_source=LinkedIn-InternalLinking&utm_medium=LinkedIn-Article&utm_campaign=Sarang-LinkedIn-Software-architecture-110522)
 
 ### 1. N-tiered (layered) architecture
@@ -139,10 +133,6 @@ UI patterns
 ### 9. Broker Architecture Pattern
 
 ### 10. Peer-to-Peer Architecture Pattern
-
-
-
-
 
 [14 software architecture design patterns to know | Enable Architect](https://www.redhat.com/architect/14-software-architecture-patterns)
 
@@ -236,67 +226,3 @@ service performance.
 The next time you're embarking on a new software architecture, 
 consider which of these (or the many other) architectural design 
 patterns you can use to make your work more efficient.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
