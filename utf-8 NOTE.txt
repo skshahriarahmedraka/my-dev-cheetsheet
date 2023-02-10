@@ -3,3 +3,7 @@ UTF-8 character
 110xxxxx 10xxxxxx - 2byte character , 10xxxxxx is storage character 
 1110xxxx 10xxxxxx 10xxxxxx - 3byte character , 10xxxxxx is storage character
 11110xxx 10xxxxxx 10xxxxxx- 4byte character , 10xxxxxx is storage character
+
+
+
+//
