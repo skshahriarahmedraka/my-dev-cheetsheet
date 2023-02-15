@@ -6,11 +6,9 @@ delete all containers
 
 sudo docker rm -vf $( sudo docker ps -aq)
 
-
 delete all images 
 
 sudo docker rmi -f $( sudo docker images -aq)
-
 
 ## build and push docker image
 

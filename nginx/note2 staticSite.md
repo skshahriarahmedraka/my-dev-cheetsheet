@@ -45,9 +45,6 @@ if type is not defined in `nginx.config` than all the file will be `plain/text`
 `nginx.config` 
 
 ```
-
-```
-
 event {
 
 }
@@ -65,9 +62,6 @@ http {
 
     }
 }
-
-```
-
 ```
 
 file `mime.types` has all the file types
