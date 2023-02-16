@@ -510,3 +510,13 @@ http {
     }
 }
 ```
+
+
+
+
+
+include config file in nginx file 
+
+```
+include /Users/HusseinNasser/loadbalancer/python.config
+```
