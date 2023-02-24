@@ -7,6 +7,17 @@ npx tailwindcss init -p
 # simple server
 	sudo npm  i -g http-server
 # or
+
+# svelte Kit + tailwindcss
+
+npm init svelte@next project-Name
+
+npx svelte-add@latest tailwindcss
+npm i
+
+
+
+
 	npm install -g live-server
 # svelte with tailwindcss
 npx degit sveltejs/template project-name  
@@ -36,12 +47,6 @@ npm install -D tailwindcss postcss autoprefixer
 npm i tailwindcss sirv-cli postcss-cli postcss cross-env concurrently autoprefixer
 
 
-# svelte Kit + tailwindcss
-
-npm init svelte@next project-Name
-
-npx svelte-add@latest tailwindcss
-npm i
 
 
 #   Add svelte-video-player to sveltekit
