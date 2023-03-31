@@ -2,3 +2,6 @@ brew install cloudflared
 
 cloudflared tunnel --url http://localhost:3000
 
+
+curl http://ipinfo.io
+

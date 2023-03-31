@@ -6,8 +6,7 @@ mkdir -p ssl
 
 
 
-openssl req -x509 -days 100 -nodes -newkey rsa:2048 -keyout 
-/etc/nginx/ssl/self.key  -out /etc/nginx/ssl/self.cert
+openssl req -x509 -days 100 -nodes -newkey rsa:2048 -keyout /etc/nginx/ssl/self.key  -out /etc/nginx/ssl/self.cert
 ```
 
 add SSL certificate :

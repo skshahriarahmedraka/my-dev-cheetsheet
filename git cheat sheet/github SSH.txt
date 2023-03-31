@@ -1,0 +1,16 @@
+  cd ~/.ssh
+  ssh-keygen  -t rsa -b 4096 -C "skshahriarahmedraka@gmail.com"
+  eval $(ssh-agent -s)
+  ssh-add
+  
+  
+then touch ~/.ssh/config
+
+```
+Host *
+	AddKeysToAgent yes
+	IdentityFile ~/.ssh/id_rsa
+	IgnoreUnknown UseKeychain
+	UseKeychain yes
+```
+
