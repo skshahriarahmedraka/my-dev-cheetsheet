@@ -185,7 +185,116 @@ db.persons.aggregate([
 - example 7: \$group and \$match
 
 - ```
-  
+  db.persons.aggregate([
+      {$group: { _id: { age: "$age" , eyeColor: "$eyeColor" } } },
+      { $match: { "_id.age" :{ $gt : 30 } }   }
+  ])
   ```
 
 - 
+
+### \$count stage
+
+- counts number of the input  of documents
+
+```
+{ $count : "<title>" }
+```
+
+- example 
+
+```
+{  $count: "countries" }
+
+
+will give output like this 
+`{"countries" :4 }`
+```
+
+- different count method
+
+```
+// these are client side count method
+db.persons.aggregate([]).toArray().length
+// 1 to 7 second 
+
+// client side method
+db.person.aggregate([]).itcount()
+// 1 to 4 second 
+
+// serverside method
+db.persons.aggregate([{$count : "total" }])
+// 0 to 0.21 second
+// return :  { "total" :1000 }
+
+
+// serverside method
+db.persons.find({}).count()
+// 0 to 0.21 second
+
+Note : find count() is a wrapper of Aggregate $count  
+```
+
+### Example 9 : \$group and \$count
+
+```
+db.persons.aggregate([
+    { $group: { _id : "$company.location.country" } },
+    { $count: "countriesCount" }
+])
+```
+
+```
+db.persons.aggregate([
+    { $match :  { age: { $gte: 25 } } },
+    { $group: { _id : { eyeColor : "$eyeColor", age: "$age" } } },
+    { $count: "eyeColorAndAge" }
+])
+```
+
+### \$sort stage
+
+- Sorts input document by certain field(s)
+  
+  ```
+  { $sort: { <field1>: <-1|1> , <field2> : <-1|1> . . . } }
+  ```
+
+- examples 
+
+```
+{ $sort: { score: -1 } }
+{ $sort: { age:1 , country:1 } }
+```
+
+Note:  <field>:1 assending order  , <field>: -1 descending Order
+
+### example 10 :  $sort
+
+```
+db.persons.aggregate([
+    {$sort: {name:1} }
+])
+```
+
+2d sort 
+
+```
+db.persons.aggregate([
+    {$sort: {name:1 , gender:-1 } }
+])
+```
+
+
+
+### Example 11: group
+
+
+
+
+
+
+
+
+
+
