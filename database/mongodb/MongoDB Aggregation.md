@@ -285,9 +285,127 @@ db.persons.aggregate([
 ])
 ```
 
+### Example 11: \$group and \$sort
+
+```
+db.persons.aggregate([
+    { $group: { _id : "$favouriteFruit" } },
+    {$sort : {_id : 1 } }
+])
+```
+
+```
+db.persons.aggregate([
+    { $group: {  _id : { eyeColor : "$eyeColor",
+         favoriteFruit :"$favouriteFruit" } },
+    {$sort : { "_id.eyeColor" : 1 , "_id.favouriteFruit" : -1 } }
+])
+```
+
+```
+db.persons.aggregate([
+    { $match : { eyeColor: { $ne : "blue" } }}
+    { $group: {  _id : { eyeColor : "$eyeColor",
+         favoriteFruit :"$favouriteFruit" } },
+    {$sort : { "_id.eyeColor" : 1 , "_id.favouriteFruit" : -1 } }
+])
+```
 
 
-### Example 11: group
+
+### $project Stage
+
+- includes ,exclude or adds new fields 
+
+```
+{
+    $project : { <field1>:<1> , <field1>: <0>, 
+<newField1> : <expression> . . .  }
+}
+```
+
+```
+{
+    $project: { name: 1, "company.title": 1 }
+}
+{
+    $project: { _id:0 , name:1 , age: 1}
+}
+{
+    $project: { eyeColor:0, age:0}
+}
+{
+    $project: {name:1 , newAge: "$age"}
+}
+```
+
+
+
+### exmaple 12: \$project
+
+```
+db.persons.aggregate([
+    {$project: { name: 1 , "company.location.country": 1 }}
+])
+
+
+// result 
+{
+    "_id": ObjectId("387253785),
+    "name" : "sk raka"
+    "company" : {
+        location : {
+            country : USA
+}
+}
+}
+```
+
+```
+db.persons.aggregate([
+    {$project: { isActive:1, name: 1 , _id:1, gender:1 }}
+])
+// this will only return  4 field
+
+db.persons.aggregate([
+    {$project: { isActive:0, name: 0 , gender:0}}
+])
+// this will return all field except these three
+```
+
+### example 13: \$Project With new field
+
+```
+db.persons.aggregate([
+    { $project: {
+       _id :0 ,
+        name: 1
+        info: {
+            eyes: "$eyeColor"
+            fruit: "$favouriteFruit",
+            country: "$company.location.country"
+}
+}
+    
+}
+])
+
+
+// result
+{
+    "index": 0
+    "name" : raka
+    "info" : {
+        "eyes": "green",
+        "company": "yurture",
+        "country" : "USA"
+}
+}
+```
+
+
+
+
 
 
 
