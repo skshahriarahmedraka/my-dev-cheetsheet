@@ -1,0 +1,4 @@
+
+Hashicorp stack (Consul, Nomad, Vault) 
+ProxmoxVE
+pgx/sqlc

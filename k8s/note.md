@@ -1,11 +1,14 @@
 ## Development and Oparation (DevOps)
 
-## development 
+## development
+
     - how developers work
     - which  git workflow 
     - how application is configured 
     - Automated Testing 
-## Oparation 
+
+## Oparation
+
     - linux basics 
     - comfortable using Cli
     - shell commands 
@@ -15,11 +18,13 @@
     - load balancers 
     - HTTP/HTTPS 
     - IP,DNS name resolution 
-## DevOps 
+
+## DevOps
+
     - system Administrator 
     - network Engineer 
     - Security 
-
+    
     - virtualization 
     - Containers
     
@@ -57,7 +62,9 @@
     - Scripting language ( closely work with  system Administration and automate tasks for development and oparation  )
         - bash (linux, mac) , powershell (windows)
         - python , ruby , golang
-## topics 
+
+## topics
+
     - dev concept | OS Systems and Linux basics (linux) | Networking and Security
     - CI/CD (jenkins) | Cloud Provider (AWS) | Scripting Language (Python)
     - Container (Docker) | Container Orchestration (Kubernetes) | Monitoring (prometheus)

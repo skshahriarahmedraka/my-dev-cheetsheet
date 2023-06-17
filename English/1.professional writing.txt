@@ -4,7 +4,7 @@
 
 2. IC 2.APP 3.APP2 4.Adj clause 5.PP 6.Quote  =noun clause IC = reduced adv clause 
 
-2. Garment industry 
+3. Garment industry 
 
 Employing over 4 million work-force, the garment sector of Bangladesh has seen a significant plummet  as the buyers were forced to refrain themselves form offering new buying orders due to arrival of COVID-19, but situation has been improving thanks to the global authority that has been relentlessly working to prevent the exorbiant presence of this deadly virus
 
@@ -20,15 +20,11 @@ Sentence - whenever we will find any sentence-ending punctuation (.  ?  ! ) , th
 
 Clause - it is a part of a sentence that can also be used a sentence
 
-
-
 Sentence - clause - 1. IC/MC/PC & 2. DC/SC 
 
 IC - clause+ full stop = sentence ( this clause is an independent clause )
 
 DC - clause + full stop != sentence ( this clause is an depencent clause )
-
-
 
 Simple sentence - 1 IC + 0 DC = simple sentence 
 
@@ -36,15 +32,11 @@ Compound sentence- IC>1 +0DC = compound sentence
 
 Complex sentence - IC >=1 + DC>=1 = complex sentence
 
-
-
 DC/SC = 1. Adjective/ relative clause (restrictive  & non restrictive)
 
 2. adverb clause
 
 3. Noun clause
-
-
 
 I love you but you hate me. conjunction= joins two clause/phrases/....
 
@@ -54,17 +46,11 @@ And, or,so, yet, but,
 
 as yet, consequently, moreover, however, nonethess, nevertheless, as well as.
 
-
-
-
-
 I love you. but you hate me.
 
 I love you. but, you hate me.
 
 I love you. Consequently, you hate me.
-
-
 
 I love you. You, but, hate me.
 
@@ -72,17 +58,11 @@ I love you. You, but, hate me.
 
 I love you. You, Consequently, hate me. 
 
-
-
 I love you. you hate me, but.
 
 I love you. you hate me, but. 
 
 I love you. you hate me, consequently.
-
-
-
-
 
  I love you, but you hate me.
 
@@ -92,25 +72,17 @@ I love you but you hate me.
 
 I love you; Consequently, you hate me.
 
-
-
 I love you; You, but, hate me.
 
 I love you; You, but, hate me.
 
 I love you; You, Consequently, hate me.
 
-
-
 I love you; you hate me, but.
 
 I love you; you hate me, but.
 
 I love you; you hate me, consequently.
-
-
-
-
 
 I love you; you hate me.
 
