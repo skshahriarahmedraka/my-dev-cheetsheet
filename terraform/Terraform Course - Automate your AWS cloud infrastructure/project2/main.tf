@@ -28,7 +28,7 @@ resource "aws_route_table" "rt" {
     }
     route {
         ipv6_cidr_blockk="::/0"
-        egress_only_gateway_id = aws_internet_gateway.gw.id 
+        gateway_id = aws_internet_gateway.gw.id 
    }
    tags ={
          Name= "Prod-RT"
@@ -41,6 +41,14 @@ resource "aws_subnet" "subnet-1" {
     availability_zone= "us-east-1a"
     tags={
         Name= "prod-subnet"
+    }
+}
+resource "aws_subnet" "subnet-2" {
+    vpc_id= aws_vpc.prod-vpc.id 
+    cidr_blockk= var.subnet_prefix[1].cidr_block
+    availability_zone= "us-east-1a"
+    tags={
+        Name= var.subnet_prefix[1].name
     }
 }
 # 5. associate subnet with route table 
@@ -94,5 +102,44 @@ resource "aws_network_interface" "web-server-nic" {
 }
 
 # 8. assign an elastic IP to the network interface created in step 7
+resource "aws_eip" "one" {
+    vpc = true 
+    network_interface = aws_network_interface.web-server-nic
+    associate_with_private_ip = "10.0.1.50"
+    depends_on= [aws_internet_gateway.gw]   
+}
+output "server_public_ip" {
+    value = aws_eip.one.public_ip
+}
+
+
 # 9. create  Ubuntu server and install/enable apache2
 
+resource "aws_instance" "web_server_instance" {
+    ami = "ami-1347712309871"
+    instance_type = "t2.micro"
+    availability_zone= "us-east-1a"
+    key_name= "main-key"
+    network_interface {
+        device_index = 0
+        network_interface_id = aws_network_interface.web-server-nic.id
+    }
+    user_data = <<-EOF
+                #!/bin/bash
+                sudo apt-get update -y
+                sudo apt-get install apache2 -y
+                sudo systemctl start apache2
+                sudo systemctl enable apache2
+                sudo bash -c 'echo your very first web server > /var/www/html/index.html'
+                EOF
+    tags = {
+        Name = "web_server_instance"
+    }
+}
+
+output "server_private_ip" {
+    value = aws_instance.web-server-instance.private_ip
+}
+output "server_id" {
+    value = aws_instance.web-server-instance.id
+}
