@@ -1,0 +1,20 @@
+
+
+sentence : whenever we will see any sentence ending punction (.-?-!) the immediately
+proceding part will be called sentence 
+clase : it is a part of sentence that can also be used as sentence 
+
+IC/PC/MC 
+
+DC/SC 
+
+1. adj/relative clause(1. Restictive & Non-Restictive)
+a. app b.PP c.Past P 
+2. adv clause
+3. noun clause
+
+
+IC : clause+. =sentence 
+IC is the fundamental part of sentence
+DC: clause+. !=sentence
+

@@ -1,0 +1,19 @@
+# sentence -> clause - 
+1. IC(independent Clause)/ PC(principal clause)/MC(main clause) / CC(co ordinatig clause) 
+- (clause + full stop) = sentence
+
+2. DC(dependent clause)/SC(subordinate clause)
+- (clause + full stop) != sentence
+- types: 
+    - Noun clause
+    - Adjective clause/ Relative clause - (appositive clause-APP, present participial clause-PPC, past participial clause-PPC, past Participial clause-PPC, infinitive clause-IC)
+    - Adverb clause
+
+1. I love you .  - (1)IC +(0)DC = ss (simple sentence)
+2. You hate me . - (1>)IC +(0)DC = cmps (compound sentence)
+3. I love you and you hate me . - (>1)IC +(>1)DC = cxs (complex sentence)
+
+
+conjuction - joins two words or two clauses
+linking words - joins two sentences 
+
