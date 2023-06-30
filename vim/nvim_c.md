@@ -11,7 +11,7 @@ A
 
 ## begining of the line : capital I
 
-I
+I    
 
 ## create a line above : capital O
 
@@ -67,9 +67,13 @@ C
 
 y
 
+yy // copy whole line 
+
 ## paste
 
-p
+p  // pase in line bellow 
+
+P  // capital p to paste line above 
 
 ## copy ful line : capital y
 
@@ -123,14 +127,6 @@ e
 
 $
 
-## delete everything from the beging
-
-0d
-
-## delete every thing to the end
-
-d$
-
 ## copy from in a word
 
 yiw
@@ -159,13 +155,17 @@ tz
 
 Tz
 
-## delete all until a ( :
-
-dt(
-
 ## start of the file
 
 gg
+
+## top of the screen
+
+[shift]+h
+
+## middle of the screen
+
+[shift]+m
 
 ## move to end of file
 
@@ -193,18 +193,174 @@ ctrl +v
 
 / 
 
-## next
+## insert line bellow
 
-n 
+o  
 
-dsfhahfsdfjsjadfjfjhbb
+## insert line above
 
-dshkahfsdfjsjadfjfjhbb
-dsfhahfsdfjsjadfjfjhbb
-dsfhahfsdfjsjadfjfjhbb
-dsfhahfsdfjsjadfjfjhbb 
-dsfhahfsdfj    
-dsfhahfsdfjsjadfjfjhbb
+O / /   
 
-bb   sjadfjfjhsjadfjfjhbb
-sjadfjfjhbbbb   sjadfjfjhbbbb   sjadfjfjhbb
+## go to a letter the same line
+
+%g  //  go to where "g"" is
+
+d% // delete all the line between braket 
+
+## toggle between all accured value
+
+[shift]+*
+
+fr;;;;;    // find r and ; for next occurance 
+
+## move the line to the middle of screen
+
+zz 
+
+## reverse the case
+
+~
+
+## re run the previous command
+
+.   // re do previous commnad 
+
+### select an HTML tag's content
+
+`vit` 
+
+`vat`
+
+Here are the steps:
+
+1. Place the cursor on the tag.
+2. Enter Visual mode by pressing v.
+3. Select the inner tag block by pressing i+t (or a+t for outer tag block).
+
+> at a `<tag> </tag>` block (with tags)
+> 
+> it inner `<tag> </tag>` block
+
+### quit without saving
+
+ZQ 
+
+### save and exit
+
+ZZ
+
+### search and replace
+
+:%s/static/whatever/g 
+
+// replace `static` with `whatever`
+
+### open a file
+
+:e  ~/.config/file.txt
+
+### go to the source file
+
+gf 
+
+### go backward of cursor history
+
+ctrl+o
+
+### go forward of cursor history
+
+ctrl +i
+
+### store the standard output to a file
+
+:r!cat ~/config/file.txt
+
+### output of a command
+
+!! 
+
+# Delete
+
+### delete everything from the beging
+
+0d
+
+### delete every thing to the end
+
+d$
+
+delete rest of the line
+
+D // capital D
+
+### delete rest of the line and go the the insert mode
+
+C // capital c
+
+Dt} // delete until }
+
+Ct} // delete until } and go to insert mode
+
+### delete all until a ( :
+
+dt(
+
+### delete the the latter currently on
+
+x
+
+### delete a letter
+
+dl 
+
+## change word
+
+cw // change a single word
+
+### Change inside ''
+
+ci"
+
+# Tree sitter
+
+up - j
+
+down-k 
+
+show sub directory -l
+
+hide sub directory-h
+
+create file or dir  -  a     // dir name end with `/`
+
+delete file - d 
+
+copy file - c 
+
+rename - r
+
+### go to the variable type defination
+
+gT
+
+### go back to the variable from type defination
+
+ctrl+o
+
+### go to the implementation
+
+gI
+
+### go to the defination
+
+gd
+
+### reference across project
+
+gr
+
+### open terminal
+
+F7  key 
+
+ 

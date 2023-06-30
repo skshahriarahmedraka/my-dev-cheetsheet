@@ -1,0 +1,99 @@
+{
+  "go.toolsManagement.autoUpdate": true,
+  "tabnine.experimentalAutoImports": true,
+  "files.autoSave": "afterDelay",
+  "workbench.iconTheme": "material-icon-theme",
+  "fileheader.Author": "Sk Shahirar Ahmed Raka",
+  "fileheader.LastModifiedBy": "Sk Shahirar Ahmed Raka",
+  "fileheader.tpl": "/* *  @Author: Sk Shahriar Ahmed Raka   * Email: skshahriarahmedraka@gmail.com  * Telegram: https://t.me/shahriarraka  * Github: https://github.com/skshahriarahmedraka  * StackOverflow: https://stackoverflow.com/users/12216779/  * Linkedin: https://linkedin.com/in/shahriarraka  * -----  * Last Modified:  * Modified By:  * -----  * Copyright (c) 2022 Your Company   * @Date: {createTime}  * @Last Modified by:   {lastModifiedBy}  * @Last Modified time: {updateTime}  */",
+  "editor.fontSize": 16,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true,
+    "go": true
+  },
+  "redhat.telemetry.enabled": true,
+  "svelte.enable-ts-plugin": true,
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "svelte"
+  },
+  "update.mode": "start",
+  "psi-header.templates": [],
+  "psi-header.config": {},
+  "psi-header.variables": [],
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path.linux": "/home/raka/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vscode-kubernetes.kubectl-path.linux": "/home/raka/.local/state/vs-kubernetes/tools/kubectl/kubectl",
+    "vscode-kubernetes.minikube-path.linux": "/home/raka/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.startupEditor": "none",
+  "editor.inlineSuggest.enabled": true,
+  "window.menuBarVisibility": "toggle",
+  "workbench.editor.enablePreview": false,
+  "svelte.plugin.svelte.useNewTransformation": false,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "[svelte]": {},
+  "workbench.colorTheme": "Atom One Dark",
+  "security.workspace.trust.untrustedFiles": "open",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.autocompleteUnimportedPackages": true,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "search.useReplacePreview": false,
+  "git.openRepositoryInParentFolders": "always",
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "key": "ctrl+a",
+      "command": "editor.action.selectAll",
+      "when": "editorTextFocus"
+    },
+    {
+      "before": ["<C-a>"],
+      "commands": [
+        {
+          "command": "editor.action.selectAll",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<C-c>"],
+      "commands": [
+        {
+          "command": "editor.action.clipboardCopyAction",
+          "args": []
+        }
+      ]
+    }
+    // {
+    //     "key": "ctrl+c",
+    //     "command": "editor.action.clipboardCopyAction",
+    //     "when": "editorTextFocus && !editorHasSelection"
+    // }
+    // {
+    //     "key": "tab",
+    //     "commands": "tab",
+    //     "when": "editorTextFocus && !editorTabMovesFocus"
+    // },
+    // {
+    //     "key": "tab",
+    //     "commands": "outdent",
+    //     "when": "editorTextFocus && !editorTabMovesFocus"
+    // }
+  ]
+}
