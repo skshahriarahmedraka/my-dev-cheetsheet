@@ -36,7 +36,23 @@ adjective clause can be situated in :
 
 
 # topic 
-The emergence of COVID-19 has destroyed the growth of world economy 
+[The emergence of COVID-19] [has] [destroyed] [the growth of world economy.]
+
+adding adjective clause to this sentence 
+
+
+[The emergence of COVID-19] {that first appreared at wuhan city} {that is the capital of hubei provence} 
+{that contribute 24% to china's GDP}
+ [has] [destroyed] [the growth of world economy] {that has accelerated exponentially since 2008}
+ {when the first global recession of 21st century occured} 
+
+
+[The emergence of COVID-19] {that first apprearing at wuhan city} {that is the capital of hubei provence}
+ {that contributing 24% to china's GDP} -
+ [has] [destroyed] [the growth of world economy,] {an economy that has accelerated exponentially since 2008}
+ {when the first global recession of 21st century occured} 
+
+
 
 
 

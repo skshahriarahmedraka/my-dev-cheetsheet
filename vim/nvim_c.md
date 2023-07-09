@@ -362,5 +362,3 @@ gr
 ### open terminal
 
 F7  key 
-
- 
