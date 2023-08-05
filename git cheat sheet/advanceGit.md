@@ -59,14 +59,12 @@ This
  command will change the files in your last commit. It will not change 
 the message associated with the commit because we have not used the `-m` flag
 
-
-
 #### step by step
 
 1. how far back do you want to go ?
    
    what should be the **base** commit 
-
+   
     git rebase -i HEAD~3 
     //editor window popup 
     // rewrite "pick" with "reword"
