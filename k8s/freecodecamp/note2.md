@@ -23,7 +23,7 @@
   kubectl get services // k8s-hello cluster will be shown
 
 - cluster ip will not be accessable from remote computer 
-
+  
   minikube ip
 
 192.168.59.101 
@@ -63,19 +63,19 @@
   kubectl get services
 
 - here k8s-hello service will be type NodePort and port is 3000:32142/tcp 
-
+  
   minikube ip
-
+  
   192.168.59.101 
 
 - in browser 192.168.59.101:32142 
-
+  
   minikube service k8s-hello // open the cluster in browser automatically
-
+  
   minikube service k8s-hello --url // see acutual url
-
+  
   kubectl delete services k8s-hello  // delete the service
-
+  
   kubectl get service
 
 ## push another verson of docker container in kubernetes
