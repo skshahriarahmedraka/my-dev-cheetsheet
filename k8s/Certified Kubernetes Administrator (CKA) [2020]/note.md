@@ -1,7 +1,3 @@
-
-
-
-
 see all running pods in a namespace
 
 ```
@@ -13,8 +9,6 @@ all the resources
 ```
 kubectl api-resources | less
 ```
-
-
 
 - kube-apiserver : front-end of the cluster that services rest operations and  connects to the etcd database  
 
@@ -47,7 +41,3 @@ kubectl api-resources | less
 - network agent: implements a software defined networking solution , such as weave
 
 - logging : the CNCF project fluentd  is used for unified logging in the cluster. A fluentd agent must be installed  on the k8s nodes  
-
-
-
-
