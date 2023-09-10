@@ -362,3 +362,7 @@ gr
 ### open terminal
 
 F7  key 
+
+### Comment multiple line
+
+<space> + /
