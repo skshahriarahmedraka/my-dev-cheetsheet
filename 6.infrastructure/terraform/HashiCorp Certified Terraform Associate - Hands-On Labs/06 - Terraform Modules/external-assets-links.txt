@@ -1,0 +1,15 @@
+
+Lab-Prerequisites-TF-Code-
+https://github.com/btkrausen/hashicorp/tree/master/terraform/Lab%20Prerequisites/Terraform%20Modules
+
+Official-Documentation-Using-Modules
+https://www.terraform.io/docs/language/modules/index.html#using-modules
+
+Terraform-Module-Registry
+https://registry.terraform.io/browse/modules
+
+Official-Documentation-Module-Registry-Protocol
+https://www.terraform.io/internals/module-registry-protocol
+
+Official-Documentation-Module-Versioning
+https://www.terraform.io/language/modules/syntax#version

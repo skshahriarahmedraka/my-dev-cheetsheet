@@ -1,0 +1,9 @@
+
+Lab-Prerequisites-TF-Code-
+https://github.com/btkrausen/hashicorp/tree/master/terraform/Lab%20Prerequisites/Terraform%20Auto%20Complete
+
+Official-Documentation-Shell-Tab-Completion
+https://www.terraform.io/docs/cli/commands/index.html#shell-tab-completion
+
+Official-Documentation-Multiple-Provider-Configurations-alias-
+https://www.terraform.io/docs/language/providers/configuration.html#alias-multiple-provider-configurations

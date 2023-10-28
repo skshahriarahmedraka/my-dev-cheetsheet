@@ -1,0 +1,15 @@
+
+HashiCorp-Infrastructure-Automation-Certification
+https://www.hashicorp.com/certification/terraform-associate
+
+Other-Course-Resources
+https://github.com/btkrausen/hashicorp
+
+Study-Guide
+https://learn.hashicorp.com/tutorials/terraform/associate-study
+
+Review-Guide
+https://learn.hashicorp.com/tutorials/terraform/associate-review
+
+Sample-Questions-Terraform-Associate-Certification
+https://learn.hashicorp.com/tutorials/terraform/associate-questions?in=terraform/certification
