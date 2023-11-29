@@ -7,4 +7,3 @@ AWS -ECR
 kubernetes
 Terraform 
 ansible 
-
