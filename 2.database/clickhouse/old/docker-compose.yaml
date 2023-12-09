@@ -1,0 +1,22 @@
+version: '3'
+services:
+  clickhouse:
+    image: yandex/clickhouse-server
+    container_name: clickhouse-server
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - ./clickhouse/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/users.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/passwords.xml:/etc/clickhouse-server/passwords.xml
+    environment:
+      - CLICKHOUSE_USER=myuser
+      - CLICKHOUSE_PASSWORD=mypassword
+    command: ["clickhouse-server", "--config-file=/etc/clickhouse-server/config.xml"]
+
+networks:
+  default:
+    external:
+      name: bridge
+

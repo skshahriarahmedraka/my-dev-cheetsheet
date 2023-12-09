@@ -1,0 +1,13 @@
+<yandex>
+    <users>
+        <default>
+            <password_sha256_hex>736a681b9f08e6c82f43c0a5d3c5eb581ef0e0c04d2e2ef88b0bdfbcf481774b</password_sha256_hex>
+            <profile>default</profile>
+        </default>
+        <myuser>
+            <password_sha256_hex>2c26b46b68ff6ff464daae4f87c5dd7f28489a7c8b4e9585012b6ce6b6a1c4d2</password_sha256_hex>
+            <profile>default</profile>
+        </myuser>
+    </users>
+</yandex>
+

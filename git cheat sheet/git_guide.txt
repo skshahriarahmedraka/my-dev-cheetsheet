@@ -34,3 +34,13 @@ change the remote url : git remote set-url origin https://git-repo/new-repositor
 
 git tag "v1.0.0"
 git push --tags
+
+########################
+## pull the latest change and rebase commit 
+  git add .
+  git commit -m "added: domain routes for admin"
+  git fetch && git rebase
+  git push
+
+
+

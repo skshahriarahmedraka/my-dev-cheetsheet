@@ -1,0 +1,6 @@
+<yandex>
+    <listen_host>::</listen_host>
+    <listen_port>9000</listen_port>
+    <!-- Add other configuration options as needed -->
+</yandex>
+
