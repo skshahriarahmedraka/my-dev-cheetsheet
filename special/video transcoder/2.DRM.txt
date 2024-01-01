@@ -1,0 +1,35 @@
+DRM
+player (web/native) shakka
+
+DRM / transcoding/hook
+AVC/HAVC
+
+mpeg2 ts
+
+cmap -hls, dash
+
+manifest.m3u8 -hls
+manifest.mpd -dash
+
+muxer & demuxer
+
+fragmented mp4
+
+m4s file
+
+av1 only supported 60% device
+
+
+architechture
+
+- account
+- stream - 
+- transcoder *
+- download 
+- DB
+- cache *
+- monitoring
+- player service
+- s3
+
+
