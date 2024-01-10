@@ -31,8 +31,6 @@ ffmpeg  -i "Sample_onlyVideo.mkv" -i "Sample_onlyAudio.m4a" -c:v copy \
  -c:a copy "SampleVideo_Output.mkv"
 ```
 
-
-
 ## ffmpeg tools
 
 - ffmpeg
@@ -40,8 +38,6 @@ ffmpeg  -i "Sample_onlyVideo.mkv" -i "Sample_onlyAudio.m4a" -c:v copy \
 - ffplay
 
 - ffprobe
-
-
 
 ## ffprobe
 
@@ -66,8 +62,6 @@ ffprobe -v error seagull.mp4 -show_stream \
 ffprobe -v error seagull.mp4 -select_streams v show_entries stream=codec_name \
  -print_format default=noprint_wrappers=1
 ```
-
-
 
 ## ffplay
 
@@ -110,5 +104,107 @@ s  frame step
 left , right   - 10 sec forward /backward
 
 esc - quit
+
+
+
+
+
+### Codec
+
+- encoding and decoding 
+
+- can mean a format or specification or software library/plugin
+
+
+
+codec example 
+
+- video codec 
+  
+  - h.264 
+  
+  - h.265
+  
+  - VP9 - google
+  
+  - Prores - apple
+  
+  - DNxHD 
+
+- audio codec
+  
+  - PCM
+  
+  - AAC
+  
+  - MP3
+
+### container
+
+- package/wrapper for media essence
+
+- file format 
+
+- How the media data is organized inside a file
+
+#### video cointainers
+
+- MP4
+
+- MXF   - used in broadcast 
+
+- QT/MOV
+
+- MKV 
+
+#### audio container
+
+- WAV 
+
+- M4A
+
+
+
+## Transcoding
+
+- from one codec to another 
+
+- example : Prores to H.264
+
+for: quality , compression, Storage, Editing/preview/streaming , consuming application
+
+
+
+- thumbnail generation
+
+- frame rate conversion
+
+- Bitrate conversion 
+
+- GOP size conversion
+
+- Overlay  - logo, watermark etc
+
+- subtiles
+
+- Timecode - change timecode ,burn in timecode 
+
+- convert video resulation
+
+- audio volume adjustment
+
+- audio mix
+
+- audio extraction
+
+- audio resampling 
+
+- waveform from audio
+
+- apply effect on video and audio
+
+
+
+
 
 
