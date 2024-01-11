@@ -105,17 +105,11 @@ left , right   - 10 sec forward /backward
 
 esc - quit
 
-
-
-
-
 ### Codec
 
 - encoding and decoding 
 
 - can mean a format or specification or software library/plugin
-
-
 
 codec example 
 
@@ -163,8 +157,6 @@ codec example
 
 - M4A
 
-
-
 ## Transcoding
 
 - from one codec to another 
@@ -172,8 +164,6 @@ codec example
 - example : Prores to H.264
 
 for: quality , compression, Storage, Editing/preview/streaming , consuming application
-
-
 
 - thumbnail generation
 
@@ -202,9 +192,3 @@ for: quality , compression, Storage, Editing/preview/streaming , consuming appli
 - waveform from audio
 
 - apply effect on video and audio
-
-
-
-
-
-
