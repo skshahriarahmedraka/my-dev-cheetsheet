@@ -33,3 +33,36 @@ https://github.com/hibiken/asynq
 https://github.com/appleboy/gorush
 https://github.com/nats-io/nats.go
 ```
+### automatic vulnarability detection in golang source code 
+```
+https://github.com/securego/gosec
+https://github.com/praetorian-inc/gokart
+https://github.com/dominikh/go-tools
+https://github.com/golangci/golangci-lint
+```
+
+### Auto reload
+```
+https://github.com/cosmtrek/air
+
+```
+### pre commit hooks 
+```
+https://github.com/pre-commit/pre-commit
+https://github.com/pre-commit/pre-commit-hooks
+```
+
+### golang linter
+```
+https://github.com/golangci/golangci-lint
+```
+### run Github action locally 
+```
+https://github.com/nektos/act 
+```
+
+### security check from source code 
+
+```
+https://github.com/securego/gosec
+```
