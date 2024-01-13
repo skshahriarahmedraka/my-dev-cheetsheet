@@ -192,3 +192,105 @@ for: quality , compression, Storage, Editing/preview/streaming , consuming appli
 - waveform from audio
 
 - apply effect on video and audio
+
+### choosing a codec
+
+- compression
+
+- quality vs size 
+
+- stream vs post-production
+
+- target application
+
+- compatibility
+
+## encoding options
+
+- global 
+  
+  - profile 
+  
+  - bitrate 
+  
+  - GOP size 
+
+- Private 
+  
+  - x264 - params
+
+```
+ffprobe -v error bullfinch.mov -select_streams v -show_entries \
+ stream=codec_name -print_format default=noprint_wrappers=1 
+# codec_name=prores 
+
+ffmeg -v error -y -i bullfinch.mov trascoded.mxf 
+
+ffprobe -v error transcoded.mxf -select_streams v -show_entries \
+ stream=codec_name -print_format default=noprint_wrappers=1 
+# codec_name=h264 
+
+ffmpeg -v error -y  -i bullfinch.mov -vcodec libx264 transcoded.mxf 
+
+ffmprove -v error transcoded.mxf -select_streams v -show_entries \
+ stream=codec_name -print_format default=nonprint_wrappers=1 
+# codec_name=h264 
+
+ffmpeg -encoders 
+
+ffmpeg -v error -y -i bullfinch.mov -vcodec libvpx-vp9 transcoded.mxf 
+
+## audio codec
+ffmpeg -v error -y -i bullfinxh.mov -vcodec libvpx-vp9 -acodec libmp3lame transcode.mp4
+
+
+ffmprobe -v error transcode.mp4 -selct_stream a  -show_entries stream=codec_name
+-print_format default=noprint_wrappers=1
+
+```
+
+
+
+## H.264 /AVC
+
+encoder library - libx264
+
+profile - baseline,main,high
+
+rate control 
+
+    - CRF : contrant quality, variable bitrate
+
+    - Two-pass ABR: Variable quality, constant bitrate
+
+CRF - 0 to 51
+
+
+
+check a video bitrate 
+
+```
+ffprobe -v error bullfinch.mov -select_streams v -show_entries \
+ stream=codec_name,bit_rate -print_format default=noprint_wrappers=1
+# codec_name=h264
+# bitrate=
+
+```
+
+2 pass encoding 
+
+```
+ffmpeg -v error -y -i bullfinch.mov -vcodec libx264 -b:v 2M -pass 1 -f null /dev/null
+
+ffmpeg -v error -y -i bullfinch.mov -vcodec libx264 -b:v 2M -pass 2 transcoded.mp4
+
+ffprobe -v error transcoded.mp4 -selet_streams v -show_entries \
+ stream=codec_name,bitrate -print_format default=noprint_wrappers=1
+# codec_name=h264
+# bit_rate=
+
+```
+
+
+
+## preset: speed vs compression
