@@ -246,10 +246,7 @@ ffmpeg -v error -y -i bullfinxh.mov -vcodec libvpx-vp9 -acodec libmp3lame transc
 
 ffmprobe -v error transcode.mp4 -selct_stream a  -show_entries stream=codec_name
 -print_format default=noprint_wrappers=1
-
 ```
-
-
 
 ## H.264 /AVC
 
@@ -265,8 +262,6 @@ rate control
 
 CRF - 0 to 51
 
-
-
 check a video bitrate 
 
 ```
@@ -274,7 +269,6 @@ ffprobe -v error bullfinch.mov -select_streams v -show_entries \
  stream=codec_name,bit_rate -print_format default=noprint_wrappers=1
 # codec_name=h264
 # bitrate=
-
 ```
 
 2 pass encoding 
@@ -288,9 +282,84 @@ ffprobe -v error transcoded.mp4 -selet_streams v -show_entries \
  stream=codec_name,bitrate -print_format default=noprint_wrappers=1
 # codec_name=h264
 # bit_rate=
+```
+
+## preset: speed vs compression
+
+
+## trimming 
+
+```
+ffmpeg -y -v error -i nature.mp4 -ss 00:03:55.000 -to 240.0 squirrel.mp4 
+```
+
+## concat multiple file 
+
+**list.txt**
+```
+file 'bull.mp4'
+file 'sea.mp4'
+file 'squirrel.mp4'
+```
+```
+ffmpeg -y -v error -f concat -i list.txt merged.mp4 
+```
+
+## thumbnail 
+
+make first frame as poster frame 
+```
+ffmpeg -v error -i bullfinch.mp4 -vframes 1 bullfinch_poster.jpg
+ffmpeg -v error -i bullfinch.mp4 -vframes 1  vf scale=320:180   bullfinch_poster_320.jpg
+
+ffmpeg -v error -i bullfinch.mp4 -ss 5 -vframes 1  bullfinch_poster.jpg
+```
+see the width andheight 
+```
+ffprobe fullfinch.jpg -v error -select_stream v -show_entries stream=width,height
+
+
+```
+
+generate multiple thumbnail 
+```
+  
+ffmpeg -v error -i bullfinch.mp4 -vf fps=1,scale=320:180 bullfinch-thumbnail-%02d.jpg 
+
+```
+## Scaling 
+
+```
+ffplay -v error cow_4k.mp4 -an 
+
+ffprobe cow_4.mp4 -v error -select_streams v -show_entries stream=width,height
+
+```
+scale 1280x720
+```
+ffmpeg -v error -y -i cow_4k.mp4 -vf scale=1280:720 cow_720.mp4
+
+ffprobe cow_720p.mp4 -v error -select_streams v -show_entries stream=width,height
+
+```
+
+```
+
+ffplay -v error -y -i cow_4k.mp4 -vf scale=640:480 cow_480.mp4 
+
+ffmpeg -v error -y -i cow_4k.mp4 -vf scale=-1:480 cow_480_aspect_preserved.mp4 
+// this can give error , because ratio cant be odd number  
+
+
+ffmpeg -v error -y -i cow_4k.mp4 -vf scale=-2:480 cow_480_aspect_preserved.mp4 
+
+ffprobe -v error cow_480_aspect_forced.mp4 -v error -selct_streams v -show_entries stream=width,height
+```
+
+```
+ffmpeg -v error -y -i cow_4k.mp4 -vf "scale=640:480:force_original_aspec_ratio=decrease,pad=640:480:(ow-iw)/2:(oh-ih)/2" cow_480_aspect_fored_and_padded.mp4
 
 ```
 
 
 
-## preset: speed vs compression
