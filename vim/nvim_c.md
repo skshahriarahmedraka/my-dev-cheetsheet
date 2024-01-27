@@ -366,3 +366,37 @@ F7  key
 ### Comment multiple line
 
 <space> + /
+
+
+
+## find file
+
+<space>ff
+
+
+
+## save as <name>
+
+:w <name>
+
+
+
+## side tree
+
+:NvimTreeToggle 
+
+
+
+## func refrences
+
+gr
+
+
+
+## show terminal
+
+:ToggleTerm
+
+## new tab with file name
+
+:tabnew <filename>
