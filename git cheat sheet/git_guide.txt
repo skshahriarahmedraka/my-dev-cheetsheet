@@ -46,3 +46,7 @@ git push --tags
 ## add repository in side another repository 
   git submodule add git@github.com:skshahriarahmedraka/StreamHub-Frontend.git frontend_sveltekit
 
+
+## remove a file from git 
+
+  git rm --cached example.txt
