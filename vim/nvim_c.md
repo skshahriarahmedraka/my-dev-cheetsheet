@@ -367,31 +367,21 @@ F7  key
 
 <space> + /
 
-
-
 ## find file
 
 <space>ff
-
-
 
 ## save as <name>
 
 :w <name>
 
-
-
 ## side tree
 
 :NvimTreeToggle 
 
-
-
 ## func refrences
 
 gr
-
-
 
 ## show terminal
 
@@ -399,4 +389,4 @@ gr
 
 ## new tab with file name
 
-:tabnew <filename>
+:tabnew <filename> 

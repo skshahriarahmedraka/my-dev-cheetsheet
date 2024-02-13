@@ -7,6 +7,7 @@
     npm install -D prettier prettier-plugin-tailwindcss
     npm install -D @tailwindcss/typography
     npm install @tailwindcss/container-queries
+    npm install -D prettier prettier-plugin-tailwindcss
     
         require('tailwindcss-question-mark'),
         require('@tailwindcss/line-clamp'),
