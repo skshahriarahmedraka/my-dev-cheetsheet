@@ -1,0 +1,57 @@
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+<!-- click and get data -->
+<button hx-get="/api/data" hx-trigger="click">
+    <!-- hx-trigger="mouseover" -->
+</button>
+
+<!--  -->
+<button hx-get="/api/data" hx-swap="outerHTML" class=""></button>
+
+<!-- target -->
+<button hx-get="/api/data" hx-target="#target" hx-trigger="click" hx-confirm="Are you sure?" type="button"></button>
+<div id="#target" class=""></div>
+
+<!-- show loading screen  -->
+<button hx-get="/api/data" hx-target="#target" hx-trigger="click" hx-indicator="#loading" type="button"></button>
+
+<!-- set query params -->
+<button hx-get="/api/data" hx-target="#target" hx-trigger="click" hx-vals="{'id': 1, 'name': 'John'}" class="">
+    <!-- this request goes like  /api/data?id=1&name=john -->
+</button>
+
+<!-- form -->
+<form hx-post="/api/data" hx-target="#target" hx-trigger="submit" hx-indicator="#loading">
+    <input type="text" name="name" value="John" />
+    <input type="submit" value="Submit" />
+</form>
+<span class="htmx-indicator" id="loading">
+    <img src="img/loader.gif" alt="loading" class="">
+</span>
+
+
+<!-- continuous fetching -->
+<div class="">
+    <span hx-get="/poll" hx-trigger="every 1s" 
+    class=""></span>
+</div>
+
+<!-- input search -->
+
+<input type="text"
+hx-post="/search"
+hx-trigger="input changed delay:500ms, search"
+hx-target="#search-results"
+hx-indicator="#loading"
+class="">
+
+<!-- check valid email, response should replace the whole div -->
+<div 
+hx-target="this"
+hx-swap="outerHTML"
+class="">
+    <label for=""></label>
+    <input type="email" hx-get="/check-email"
+    hx-post="/contract/validate-email"
+    class="">
+</div>
