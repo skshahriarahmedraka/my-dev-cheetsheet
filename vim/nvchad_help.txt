@@ -1,0 +1,133 @@
+                                                                                   
+                                                                                   
+                                             █▀▀ █░█ █▀▀ ▄▀█ ▀█▀ █▀ █░█ █▀▀ █▀▀ ▀█▀
+                                             █▄▄ █▀█ ██▄ █▀█ ░█░ ▄█ █▀█ ██▄ ██▄ ░█░
+                                                                                   
+                                                                                   
+                                                                                   
+                         blankline                                                      comment                           
+                                                                                                                          
+  Jump to current context                    <leader> + cc      Toggle comment                              <leader> + /  
+                                                                                                                          
+                                                                                                                          
+                        comment (v)                                                       dap                             
+                                                                                                                          
+  Toggle comment                              <leader> + /      Add breakpoint at line                     <leader> + db  
+                                                                                                                          
+                                                                Open debugging sidebar                    <leader> + dus  
+                           dap_go                                                                                         
+                                                                                                                          
+  Debug go test                             <leader> + dgt                              general                           
+                                                                                                                          
+  Debug last go test                        <leader> + dgl      enter command mode                                     ;  
+                                                                                                                          
+                                                                Copy whole file                                    <C-c>  
+                        general (i)                                                                                       
+                                                                Toggle line number                          <leader> + n  
+  End of line                                        <C-e>                                                                
+                                                                formatting                                 <leader> + fm  
+  Move down                                          <C-j>                                                                
+                                                                Window left                                        <C-h>  
+  Move left                                          <C-h>                                                                
+                                                                Toggle relative number                     <leader> + rn  
+  Move up                                            <C-k>                                                                
+                                                                Window down                                        <C-j>  
+  Beginning of line                                  <C-b>                                                                
+                                                                Move up                                                k  
+  Move right                                         <C-l>                                                                
+                                                                Move down                                              j  
+                                                                                                                          
+                        general (t)                             Mapping cheatsheet                         <leader> + ch  
+                                                                                                                          
+  Escape terminal mode                               <C-x>      New buffer                                  <leader> + b  
+                                                                                                                          
+                                                                Move down                                         <Down>  
+                        general (v)                                                                                       
+                                                                Save file                                          <C-s>  
+  Indent line                                            <                                                                
+                                                                Window up                                          <C-k>  
+  Move up                                             <Up>                                                                
+                                                                Move up                                             <Up>  
+  Move down                                         <Down>                                                                
+                                                                Window right                                       <C-l>  
+  indent                                                 >                                                                
+                                                                Clear highlights                                   <Esc>  
+                                                                                                                          
+                        general (x)                                                                                       
+                                                                                        gitsigns                          
+  Dont copy replaced text                                p                                                                
+                                                                Preview hunk                               <leader> + ph  
+  Move down                                              j                                                                
+                                                                Jump to prev hunk                                     [c  
+  Move up                                                k                                                                
+                                                                Blame line                                 <leader> + gb  
+                                                                                                                          
+                           gopher                               Toggle deleted                             <leader> + td  
+                                                                                                                          
+  Add json struct tags                      <leader> + gsj      Reset hunk                                 <leader> + rh  
+                                                                                                                          
+  Add yaml struct tags                      <leader> + gsy      Jump to next hunk                                     ]c  
+                                                                                                                          
+                                                                                                                          
+                         lspconfig                                                   lspconfig (v)                        
+                                                                                                                          
+  Diagnostic setloclist                       <leader> + q      LSP code action                            <leader> + ca  
+                                                                                                                          
+  List workspace folders                     <leader> + wl                                                                
+                                                                                        nvimtree                          
+  LSP definition                                        gd                                                                
+                                                                Focus nvimtree                              <leader> + e  
+  Add workspace folder                       <leader> + wa                                                                
+                                                                Toggle nvimtree                                    <C-n>  
+  LSP references                                        gr                                                                
+                                                                                                                          
+  LSP hover                                              K                               nvterm                           
+                                                                                                                          
+  Remove workspace folder                    <leader> + wr      Toggle floating term                               <A-i>  
+                                                                                                                          
+  Floating diagnostic                        <leader> + lf      New horizontal term                         <leader> + h  
+                                                                                                                          
+  LSP implementation                                    gi      Toggle horizontal term                             <A-h>  
+                                                                                                                          
+  LSP definition type                         <leader> + D      Toggle vertical term                               <A-v>  
+                                                                                                                          
+  Goto prev                                             [d      New vertical term                           <leader> + v  
+                                                                                                                          
+  LSP signature help                         <leader> + ls                                                                
+                                                                                      nvterm (t)                          
+  LSP rename                                 <leader> + ra                                                                
+                                                                Toggle floating term                               <A-i>  
+  Goto next                                             ]d                                                                
+                                                                Toggle vertical term                               <A-v>  
+  LSP declaration                                       gD                                                                
+                                                                Toggle horizontal term                             <A-h>  
+  LSP code action                            <leader> + ca                                                                
+                                                                                                                          
+                                                                                       tabufline                          
+                         telescope                                                                                        
+                                                                Goto next buffer                                   <tab>  
+  Nvchad themes                              <leader> + th                                                                
+                                                                Goto prev buffer                                 <S-tab>  
+  Find oldfiles                              <leader> + fo                                                                
+                                                                Close buffer                                <leader> + x  
+  Find files                                 <leader> + ff                                                                
+                                                                                                                          
+  telescope bookmarks                        <leader> + ma                              whichkey                          
+                                                                                                                          
+  Find in current buffer                     <leader> + fz      Which-key all keymaps                      <leader> + wK  
+                                                                                                                          
+  Find all                                   <leader> + fa      Which-key query lookup                     <leader> + wk  
+                                                                                                                          
+  Git commits                                <leader> + cm                                                                
+                                                                                                                          
+  Live grep                                  <leader> + fw                                                                
+                                                                                                                          
+  Git status                                 <leader> + gt                                                                
+                                                                                                                          
+  Find buffers                               <leader> + fb                                                                
+                                                                                                                          
+  Pick hidden term                           <leader> + pt                                                                
+                                                                                                                          
+  Help page                                  <leader> + fh                                                                
+                                                                                                                          
+                                                                                                                          
