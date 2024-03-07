@@ -321,7 +321,7 @@ cw // change a single word
 
 ci"
 
-# Tree sitter
+# Neo Tree sitter
 
 up - j
 
@@ -337,7 +337,11 @@ delete file - d
 
 copy file - c 
 
+move file - m
+
 rename - r
+
+open a file in vertical split  - s
 
 ### go to the variable type defination
 
@@ -390,3 +394,57 @@ gr
 ## new tab with file name
 
 :tabnew <filename> 
+
+- you need to install language server to work **gd** shortcut 
+  
+  - install langage server using **:MesonInstall typescript**
+
+## neo tree
+
+help :   `?`
+
+## git status in astrovim
+
+`<space>ti`
+
+## floating termial :
+
+`<space>tf`
+
+## horizontal terminal
+
+`<space>th`
+
+## navigation between splits
+
+horizontal : `ctrl + j` `ctrl + k`
+
+vertical : `ctrl + h` `ctrl + l`
+
+## resize the split window
+
+`ctrl + up` `ctrl + down` `ctrl + left``ctrl + right`
+
+## file search
+
+`<space> f f`
+
+## text seach in project
+
+`<space> f w`
+
+## next buffer
+
+`]b` `[b`
+
+## show the first letter of current buffer
+
+`<space>bb`
+
+## close the current buffer
+
+`<space> c`
+
+## close all buffer
+
+`<space>bc`

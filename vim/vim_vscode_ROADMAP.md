@@ -121,14 +121,14 @@ Now follows an exhaustive list of every known Vim command that we could find.
 | :white_check_mark: :star: | :1234: `?{pattern}[?[offset]]<CR>` | search backward for the Nth occurrence of {pattern}    | Currently we only support JavaScript Regex but not Vim's in-house Regex engine. |
 | :warning:                 | :1234: `/<CR>`                     | repeat last search, in the forward direction           | {count} is not supported.                                                       |
 | :warning:                 | :1234: `?<CR>`                     | repeat last search, in the backward direction          | {count} is not supported.                                                       |
-| :white_check_mark:        | :1234: n                           | repeat last search                                     |
-| :white_check_mark:        | :1234: N                           | repeat last search, in opposite direction              |
-| :white_check_mark:        | :1234: \*                          | search forward for the identifier under the cursor     |
-| :white_check_mark:        | :1234: #                           | search backward for the identifier under the cursor    |
-| :white_check_mark:        | :1234: g\*                         | like "\*", but also find partial matches               |
-| :white_check_mark:        | :1234: g#                          | like "#", but also find partial matches                |
-| :white_check_mark:        | gd                                 | goto local declaration of identifier under the cursor  |
-| :arrow_down:              | gD                                 | goto global declaration of identifier under the cursor |
+| :white_check_mark:        | :1234: n                           | repeat last search                                     |                                                                                 |
+| :white_check_mark:        | :1234: N                           | repeat last search, in opposite direction              |                                                                                 |
+| :white_check_mark:        | :1234: \*                          | search forward for the identifier under the cursor     |                                                                                 |
+| :white_check_mark:        | :1234: #                           | search backward for the identifier under the cursor    |                                                                                 |
+| :white_check_mark:        | :1234: g\*                         | like "\*", but also find partial matches               |                                                                                 |
+| :white_check_mark:        | :1234: g#                          | like "#", but also find partial matches                |                                                                                 |
+| :white_check_mark:        | gd                                 | goto local declaration of identifier under the cursor  |                                                                                 |
+| :arrow_down:              | gD                                 | goto global declaration of identifier under the cursor |                                                                                 |
 
 ## Marks and motions
 
@@ -258,24 +258,24 @@ moving around:
 
 | Status                    | Command                      | Description                                                        | Note                                                                                                                   |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| :arrow_down:              | CTRL-V {char}..              | insert character literally, or enter decimal byte value            |
+| :arrow_down:              | CTRL-V {char}..              | insert character literally, or enter decimal byte value            |                                                                                                                        |
 | :warning:                 | NL or CR or CTRL-M or CTRL-J | begin new line                                                     | CTRL-M and CTRL-J are not supported                                                                                    |
-| :white_check_mark:        | CTRL-E                       | insert the character from below the cursor                         |
-| :white_check_mark:        | CTRL-Y                       | insert the character from above the cursor                         |
+| :white_check_mark:        | CTRL-E                       | insert the character from below the cursor                         |                                                                                                                        |
+| :white_check_mark:        | CTRL-Y                       | insert the character from above the cursor                         |                                                                                                                        |
 | :white_check_mark: :star: | CTRL-A                       | insert previously inserted text                                    | We apply previously document change made in previous Insert session and we only apply changes that happen under cursor |
 | :white_check_mark: :star: | CTRL-@                       | insert previously inserted text and stop Insert mode               | As above                                                                                                               |
-| :white_check_mark:        | CTRL-R {0-9a-z%#:.-="}       | insert the contents of a register                                  |
-| :white_check_mark:        | CTRL-N                       | insert next match of identifier before the cursor                  |
-| :white_check_mark:        | CTRL-P                       | insert previous match of identifier before the cursor              |
-| :arrow_down:              | CTRL-X ...                   | complete the word before the cursor in various ways                |
-| :white_check_mark:        | BS or CTRL-H                 | delete the character before the cursor                             |
-| :white_check_mark:        | Del                          | delete the character under the cursor                              |
-| :white_check_mark:        | CTRL-W                       | delete word before the cursor                                      |
-| :white_check_mark:        | CTRL-U                       | delete all entered characters in the current line                  |
-| :white_check_mark:        | CTRL-T                       | insert one shiftwidth of indent in front of the current line       |
-| :white_check_mark:        | CTRL-D                       | delete one shiftwidth of indent in front of the current line       |
-| :arrow_down:              | 0 CTRL-D                     | delete all indent in the current line                              |
-| :arrow_down:              | ^ CTRL-D                     | delete all indent in the current line, restore indent in next line |
+| :white_check_mark:        | CTRL-R {0-9a-z%#:.-="}       | insert the contents of a register                                  |                                                                                                                        |
+| :white_check_mark:        | CTRL-N                       | insert next match of identifier before the cursor                  |                                                                                                                        |
+| :white_check_mark:        | CTRL-P                       | insert previous match of identifier before the cursor              |                                                                                                                        |
+| :arrow_down:              | CTRL-X ...                   | complete the word before the cursor in various ways                |                                                                                                                        |
+| :white_check_mark:        | BS or CTRL-H                 | delete the character before the cursor                             |                                                                                                                        |
+| :white_check_mark:        | Del                          | delete the character under the cursor                              |                                                                                                                        |
+| :white_check_mark:        | CTRL-W                       | delete word before the cursor                                      |                                                                                                                        |
+| :white_check_mark:        | CTRL-U                       | delete all entered characters in the current line                  |                                                                                                                        |
+| :white_check_mark:        | CTRL-T                       | insert one shiftwidth of indent in front of the current line       |                                                                                                                        |
+| :white_check_mark:        | CTRL-D                       | delete one shiftwidth of indent in front of the current line       |                                                                                                                        |
+| :arrow_down:              | 0 CTRL-D                     | delete all indent in the current line                              |                                                                                                                        |
+| :arrow_down:              | ^ CTRL-D                     | delete all indent in the current line, restore indent in next line |                                                                                                                        |
 
 ## Digraphs
 
@@ -331,11 +331,11 @@ moving around:
 
 | Status                    | Command         | Description                                                                                       | Note                     |
 | ------------------------- | --------------- | ------------------------------------------------------------------------------------------------- | ------------------------ |
-| :white_check_mark:        | :1234: r{char}  | replace N characters with {char}                                                                  |
-| :arrow_down:              | :1234: gr{char} | replace N characters without affecting layout                                                     |
+| :white_check_mark:        | :1234: r{char}  | replace N characters with {char}                                                                  |                          |
+| :arrow_down:              | :1234: gr{char} | replace N characters without affecting layout                                                     |                          |
 | :white_check_mark: :star: | :1234: R        | enter Replace mode (repeat the entered text N times)                                              | {count} is not supported |
-| :arrow_down:              | :1234: gR       | enter virtual Replace mode: Like Replace mode but without affecting layout                        |
-| :white_check_mark:        | {visual}r{char} | in Visual block, visual, or visual line modes: Replace each char of the selected text with {char} |
+| :arrow_down:              | :1234: gR       | enter virtual Replace mode: Like Replace mode but without affecting layout                        |                          |
+| :white_check_mark:        | {visual}r{char} | in Visual block, visual, or visual line modes: Replace each char of the selected text with {char} |                          |
 
 (change = delete text and enter Insert mode)
 
@@ -372,17 +372,17 @@ moving around:
 
 | Status                              | Command                                        | Description                                                                                                                           | Note                                                                             |
 | ----------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| :arrow_down:                        | :1234: `!{motion}{command}<CR>`                | filter the lines that are moved over through {command}                                                                                |
-| :arrow_down:                        | :1234: `!!{command}<CR>`                       | filter N lines through {command}                                                                                                      |
-| :arrow_down:                        | `{visual}!{command}<CR>`                       | filter the highlighted lines through {command}                                                                                        |
-| :arrow_down:                        | `:[range]! {command}<CR>`                      | filter [range] lines through {command}                                                                                                |
-| :white_check_mark:                  | :1234: ={motion}                               | filter the lines that are moved over through 'equalprg'                                                                               |
-| :white_check_mark:                  | :1234: ==                                      | filter N lines through 'equalprg'                                                                                                     |
-| :white_check_mark:                  | {visual}=                                      | filter the highlighted lines through 'equalprg'                                                                                       |
+| :arrow_down:                        | :1234: `!{motion}{command}<CR>`                | filter the lines that are moved over through {command}                                                                                |                                                                                  |
+| :arrow_down:                        | :1234: `!!{command}<CR>`                       | filter N lines through {command}                                                                                                      |                                                                                  |
+| :arrow_down:                        | `{visual}!{command}<CR>`                       | filter the highlighted lines through {command}                                                                                        |                                                                                  |
+| :arrow_down:                        | `:[range]! {command}<CR>`                      | filter [range] lines through {command}                                                                                                |                                                                                  |
+| :white_check_mark:                  | :1234: ={motion}                               | filter the lines that are moved over through 'equalprg'                                                                               |                                                                                  |
+| :white_check_mark:                  | :1234: ==                                      | filter N lines through 'equalprg'                                                                                                     |                                                                                  |
+| :white_check_mark:                  | {visual}=                                      | filter the highlighted lines through 'equalprg'                                                                                       |                                                                                  |
 | :white_check_mark: :star: :warning: | :[range]s[ubstitute]/{pattern}/{string}/[g][c] | substitute {pattern} by {string} in [range] lines; with [g], replace all occurrences of {pattern}; with [c], confirm each replacement | Currently we only support JavaScript Regex and only options `gi` are implemented |
-| :arrow_down:                        | :[range]s[ubstitute][g][c]                     | repeat previous ":s" with new range and options                                                                                       |
-| :arrow_down:                        | &                                              | Repeat previous ":s" on current line without options                                                                                  |
-| :arrow_down:                        | :[range]ret[ab][!] [tabstop]                   | set 'tabstop' to new value and adjust white space accordingly                                                                         |
+| :arrow_down:                        | :[range]s[ubstitute][g][c]                     | repeat previous ":s" with new range and options                                                                                       |                                                                                  |
+| :arrow_down:                        | &                                              | Repeat previous ":s" on current line without options                                                                                  |                                                                                  |
+| :arrow_down:                        | :[range]ret[ab][!] [tabstop]                   | set 'tabstop' to new value and adjust white space accordingly                                                                         |                                                                                  |
 
 ## Visual mode
 
@@ -430,39 +430,39 @@ moving around:
 | Status                    | Command                           | Description                                                                                        | Note                                                                |
 | ------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | :white_check_mark: :star: | :1234: .                          | repeat last change (with count replaced with N)                                                    | Content changes that don't happen under cursor can not be repeated. |
-| :white_check_mark:        | q{a-z}                            | record typed characters into register {a-z}                                                        |
-| :arrow_down:              | q{A-Z}                            | record typed characters, appended to register {a-z}                                                |
-| :white_check_mark:        | q                                 | stop recording                                                                                     |
-| :white_check_mark:        | :1234: @{a-z}                     | execute the contents of register {a-z} (N times)                                                   |
-| :white_check_mark:        | :1234: @@                         | repeat previous @{a-z} (N times)                                                                   |
-| :arrow_down:              | :@{a-z}                           | execute the contents of register {a-z} as an Ex command                                            |
-| :arrow_down:              | :@@                               | repeat previous :@{a-z}                                                                            |
-| :arrow_down:              | :[range]g[lobal]/{pattern}/[cmd]  | execute Ex command [cmd](default: ':p') on the lines within [range] where {pattern} matches        |
-| :arrow_down:              | :[range]g[lobal]!/{pattern}/[cmd] | execute Ex command [cmd](default: ':p') on the lines within [range] where {pattern} does NOT match |
-| :arrow_down:              | :so[urce] {file}                  | read Ex commands from {file}                                                                       |
-| :arrow_down:              | :so[urce]! {file}                 | read Vim commands from {file}                                                                      |
-| :arrow_down:              | :sl[eep][sec]                     | don't do anything for [sec] seconds                                                                |
-| :arrow_down:              | :1234: gs                         | goto Sleep for N seconds                                                                           |
+| :white_check_mark:        | q{a-z}                            | record typed characters into register {a-z}                                                        |                                                                     |
+| :arrow_down:              | q{A-Z}                            | record typed characters, appended to register {a-z}                                                |                                                                     |
+| :white_check_mark:        | q                                 | stop recording                                                                                     |                                                                     |
+| :white_check_mark:        | :1234: @{a-z}                     | execute the contents of register {a-z} (N times)                                                   |                                                                     |
+| :white_check_mark:        | :1234: @@                         | repeat previous @{a-z} (N times)                                                                   |                                                                     |
+| :arrow_down:              | :@{a-z}                           | execute the contents of register {a-z} as an Ex command                                            |                                                                     |
+| :arrow_down:              | :@@                               | repeat previous :@{a-z}                                                                            |                                                                     |
+| :arrow_down:              | :[range]g[lobal]/{pattern}/[cmd]  | execute Ex command [cmd](default: ':p') on the lines within [range] where {pattern} matches        |                                                                     |
+| :arrow_down:              | :[range]g[lobal]!/{pattern}/[cmd] | execute Ex command [cmd](default: ':p') on the lines within [range] where {pattern} does NOT match |                                                                     |
+| :arrow_down:              | :so[urce] {file}                  | read Ex commands from {file}                                                                       |                                                                     |
+| :arrow_down:              | :so[urce]! {file}                 | read Vim commands from {file}                                                                      |                                                                     |
+| :arrow_down:              | :sl[eep][sec]                     | don't do anything for [sec] seconds                                                                |                                                                     |
+| :arrow_down:              | :1234: gs                         | goto Sleep for N seconds                                                                           |                                                                     |
 
 ## options
 
 | Status                    | Command                  | Description                                                                                                       | Note                                 |
 | ------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| :arrow_down:              | :se[t]                   | show all modified options                                                                                         |
-| :arrow_down:              | :se[t] all               | show all non-termcap options                                                                                      |
-| :arrow_down:              | :se[t] termcap           | show all termcap options                                                                                          |
-| :white_check_mark:        | :se[t] {option}          | set boolean option (switch it on), show string or number option                                                   |
-| :white_check_mark:        | :se[t] no{option}        | reset boolean option (switch it off)                                                                              |
-| :white_check_mark:        | :se[t] inv{option}       | invert boolean option                                                                                             |
-| :white_check_mark:        | :se[t] {option}={value}  | set string/number option to {value}                                                                               |
-| :white_check_mark:        | :se[t] {option}+={value} | append {value} to string option, add {value} to number option                                                     |
+| :arrow_down:              | :se[t]                   | show all modified options                                                                                         |                                      |
+| :arrow_down:              | :se[t] all               | show all non-termcap options                                                                                      |                                      |
+| :arrow_down:              | :se[t] termcap           | show all termcap options                                                                                          |                                      |
+| :white_check_mark:        | :se[t] {option}          | set boolean option (switch it on), show string or number option                                                   |                                      |
+| :white_check_mark:        | :se[t] no{option}        | reset boolean option (switch it off)                                                                              |                                      |
+| :white_check_mark:        | :se[t] inv{option}       | invert boolean option                                                                                             |                                      |
+| :white_check_mark:        | :se[t] {option}={value}  | set string/number option to {value}                                                                               |                                      |
+| :white_check_mark:        | :se[t] {option}+={value} | append {value} to string option, add {value} to number option                                                     |                                      |
 | :white_check_mark: :star: | :se[t] {option}-={value} | remove {value} to string option, subtract {value} from number option                                              | We don't support string option here. |
-| :white_check_mark:        | :se[t] {option}?         | show value of {option}                                                                                            |
-| :arrow_down:              | :se[t] {option}&         | reset {option} to its default value                                                                               |
-| :arrow_down:              | :setl[ocal]              | like ":set" but set the local value for options that have one                                                     |
-| :arrow_down:              | :setg[lobal]             | like ":set" but set the global value of a local option                                                            |
-| :arrow_down:              | :fix[del]                | set value of 't_kD' according to value of 't_kb'                                                                  |
-| :arrow_down:              | :opt[ions]               | open a new window to view and set options, grouped by functionality, a one line explanation and links to the help |
+| :white_check_mark:        | :se[t] {option}?         | show value of {option}                                                                                            |                                      |
+| :arrow_down:              | :se[t] {option}&         | reset {option} to its default value                                                                               |                                      |
+| :arrow_down:              | :setl[ocal]              | like ":set" but set the local value for options that have one                                                     |                                      |
+| :arrow_down:              | :setg[lobal]             | like ":set" but set the global value of a local option                                                            |                                      |
+| :arrow_down:              | :fix[del]                | set value of 't_kD' according to value of 't_kb'                                                                  |                                      |
+| :arrow_down:              | :opt[ions]               | open a new window to view and set options, grouped by functionality, a one line explanation and links to the help |                                      |
 
 Since the list is too long, now we just put those already supported options here.
 
@@ -483,7 +483,7 @@ Since the list is too long, now we just put those already supported options here
 | ------------------ | ------------- | -------------------------- | ---------------------------------------------------------- |
 | :white_check_mark: | :1234: u      | undo last N changes        | Current implementation may not cover every case perfectly. |
 | :white_check_mark: | :1234: CTRL-R | redo last N undone changes | As above.                                                  |
-| :white_check_mark: | U             | restore last changed line  |
+| :white_check_mark: | U             | restore last changed line  |                                                            |
 
 ## External commands
 
@@ -497,18 +497,18 @@ Since the list is too long, now we just put those already supported options here
 
 | Status                    | Command       | Description                                                                  | Note                                 |
 | ------------------------- | ------------- | ---------------------------------------------------------------------------- | ------------------------------------ |
-| :white_check_mark:        | ,             | separates two line numbers                                                   |
+| :white_check_mark:        | ,             | separates two line numbers                                                   |                                      |
 | :white_check_mark: :star: | ;             | idem, set cursor to the first line number before interpreting the second one | The cursor movement is not included. |
-| :white_check_mark:        | {number}      | an absolute line number                                                      |
-| :white_check_mark:        | .             | the current line                                                             |
-| :white_check_mark:        | \$            | the last line in the file                                                    |
-| :white_check_mark:        | %             | equal to 1,\$ (the entire file)                                              |
-| :white_check_mark:        | \*            | equal to '<,'> (visual area)                                                 |
-| :white_check_mark:        | 't            | position of mark t                                                           |
-| :arrow_down:              | /{pattern}[/] | the next line where {pattern} matches                                        |
-| :arrow_down:              | ?{pattern}[?] | the previous line where {pattern} matches                                    |
-| :white_check_mark:        | +[num]        | add [num] to the preceding line number (default: 1)                          |
-| :white_check_mark:        | -[num]        | subtract [num] from the preceding line number (default: 1)                   |
+| :white_check_mark:        | {number}      | an absolute line number                                                      |                                      |
+| :white_check_mark:        | .             | the current line                                                             |                                      |
+| :white_check_mark:        | \$            | the last line in the file                                                    |                                      |
+| :white_check_mark:        | %             | equal to 1,\$ (the entire file)                                              |                                      |
+| :white_check_mark:        | \*            | equal to '<,'> (visual area)                                                 |                                      |
+| :white_check_mark:        | 't            | position of mark t                                                           |                                      |
+| :arrow_down:              | /{pattern}[/] | the next line where {pattern} matches                                        |                                      |
+| :arrow_down:              | ?{pattern}[?] | the previous line where {pattern} matches                                    |                                      |
+| :white_check_mark:        | +[num]        | add [num] to the preceding line number (default: 1)                          |                                      |
+| :white_check_mark:        | -[num]        | subtract [num] from the preceding line number (default: 1)                   |                                      |
 
 ## Editing a file
 
@@ -534,22 +534,22 @@ Since the list is too long, now we just put those already supported options here
 
 | Status                    | Command                              | Description                                                                   | Note                                                               |
 | ------------------------- | ------------------------------------ | ----------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| :white_check_mark:        | :tabn[ext] :1234:                    | Go to next tab page or tab page {count}. The first tab page has number one.   |
-| :white_check_mark:        | {count}&lt;C-PageDown&gt;, {count}gt | Same as above                                                                 |
-| :white_check_mark:        | :tabp[revious] :1234:                | Go to the previous tab page. Wraps around from the first one to the last one. |
-| :white_check_mark:        | :tabN[ext] :1234:                    | Same as above                                                                 |
-| :white_check_mark:        | {count}&lt;C-PageUp&gt;, {count}gT   | Same as above                                                                 |
-| :white_check_mark:        | :tabfir[st]                          | Go to the first tab page.                                                     |
-| :white_check_mark:        | :tabl[ast]                           | Go to the last tab page.                                                      |
-| :white_check_mark:        | :tabe[dit] {file}                    | Open a new tab page with an empty window, after the current tab page          |
+| :white_check_mark:        | :tabn[ext] :1234:                    | Go to next tab page or tab page {count}. The first tab page has number one.   |                                                                    |
+| :white_check_mark:        | {count}&lt;C-PageDown&gt;, {count}gt | Same as above                                                                 |                                                                    |
+| :white_check_mark:        | :tabp[revious] :1234:                | Go to the previous tab page. Wraps around from the first one to the last one. |                                                                    |
+| :white_check_mark:        | :tabN[ext] :1234:                    | Same as above                                                                 |                                                                    |
+| :white_check_mark:        | {count}&lt;C-PageUp&gt;, {count}gT   | Same as above                                                                 |                                                                    |
+| :white_check_mark:        | :tabfir[st]                          | Go to the first tab page.                                                     |                                                                    |
+| :white_check_mark:        | :tabl[ast]                           | Go to the last tab page.                                                      |                                                                    |
+| :white_check_mark:        | :tabe[dit] {file}                    | Open a new tab page with an empty window, after the current tab page          |                                                                    |
 | :arrow_down:              | :[count]tabe[dit], :[count]tabnew    | Same as above                                                                 | [count] is not supported.                                          |
-| :white_check_mark:        | :tabnew {file}                       | Open a new tab page with an empty window, after the current tab page          |
-| :arrow_down:              | :[count]tab {cmd}                    | Execute {cmd} and when it opens a new window open a new tab page instead.     |
+| :white_check_mark:        | :tabnew {file}                       | Open a new tab page with an empty window, after the current tab page          |                                                                    |
+| :arrow_down:              | :[count]tab {cmd}                    | Execute {cmd} and when it opens a new window open a new tab page instead.     |                                                                    |
 | :white_check_mark: :star: | :tabc[lose][!] :1234:                | Close current tab page or close tab page {count}.                             | Code will close tab directly without saving.                       |
 | :white_check_mark: :star: | :tabo[nly][!]                        | Close all other tab pages.                                                    | `!` is not supported, Code will close tab directly without saving. |
-| :white_check_mark:        | :tabm[ove][n]                        | Move the current tab page to after tab page N.                                |
+| :white_check_mark:        | :tabm[ove][n]                        | Move the current tab page to after tab page N.                                |                                                                    |
 | :arrow_down:              | :tabs                                | List the tab pages and the windows they contain.                              | You can always use Code's built-in shortcut: `cmd/ctrl+p`          |
-| :arrow_down:              | :tabd[o] {cmd}                       | Execute {cmd} in each tab page.                                               |
+| :arrow_down:              | :tabd[o] {cmd}                       | Execute {cmd} in each tab page.                                               |                                                                    |
 
 ## Folding
 
@@ -592,3 +592,23 @@ Pretty much everything fold-related is blocked by [this issue](https://github.co
 ### Fold options
 
 Currently we don't support any fold option and we are following Code configurations.
+
+
+
+
+
+
+
+
+
+### search
+
+`/<text>`
+
+## search and replace in that line
+
+`:s/<searchText/<replaceText>`
+
+## Search and replace whole file
+
+`:%s/<searchText>/<replaceText>`
