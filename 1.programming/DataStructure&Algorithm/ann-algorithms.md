@@ -1,5 +1,3 @@
-
-
 ## many classes of algorithms
 
 - Tree : k-d trees, ball trees, cover trees ....
@@ -21,5 +19,3 @@
   - sparse high dimentional 
   
   - geospatial 
-
-
