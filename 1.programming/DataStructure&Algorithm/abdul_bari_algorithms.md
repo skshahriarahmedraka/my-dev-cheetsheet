@@ -131,3 +131,7 @@ here , time function **f(n) =2n+3**
 space complexity  **S(n) = n+3**
 
 time complexity  **O(n)** 
+
+
+
+## Huff man coding
