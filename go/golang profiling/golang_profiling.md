@@ -1,3 +1,25 @@
+- golang has 5 different profilers : cpu, heap,mutex,block, goroutine 
+
+- ```
+  go test -cpuprofile cpu.prof -memprofile mem.prof -bench
+  ```
+
+- pprof visualization and analysis tool 
+
+- ```
+  go tool pprof -http=:6060 cpu.prof
+  ```
+
+- runtime execution tracer (overhead can be > 10%)
+
+- ```
+  go test -trace trace.out -bench
+  ```
+
+- three profiler that measure time : cpu,block,mutex
+
+
+
 ## profiling in golang
 
 - CPU profiling 
@@ -46,8 +68,6 @@ go tool pprof /path/to/your/binary /path/to/profile.pprof
 Once you have generated a profile, you can use the interactive `pprof` tool to explore and analyze the data. The tool provides various commands and visualizations to help you identify and understand performance bottlenecks.
 
 It's important to note that profiling can introduce some overhead and may affect the performance of your program. It's generally recommended to profile your application under realistic load conditions and to minimize the profiling duration to avoid skewing the results.
-
-
 
 ## CPU profiling
 
