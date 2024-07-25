@@ -593,14 +593,6 @@ Pretty much everything fold-related is blocked by [this issue](https://github.co
 
 Currently we don't support any fold option and we are following Code configurations.
 
-
-
-
-
-
-
-
-
 ### search
 
 `/<text>`

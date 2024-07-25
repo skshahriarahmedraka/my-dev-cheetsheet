@@ -1,25 +1,22 @@
+*provider.txt*        Nvim
 
-*provider.txt*		Nvim
+         NVIM REFERENCE MANUAL    by Thiago de Arruda
 
-
-		 NVIM REFERENCE MANUAL    by Thiago de Arruda
-
-
-Providers					*provider*
+Providers                    *provider*
 
 Nvim delegates some features to dynamic "providers". This document describes
 the providers and how to install them.
-						*E319*
+                        *E319*
 Use of a feature requiring a missing provider is an error:  
 
     E319: No "foo" provider found. Run ":checkhealth provider"
 
 Run the |:checkhealth| command, and review the sections below.
 
-				      Type |gO| to see the table of contents.
+                      Type |gO| to see the table of contents.
 
 ==============================================================================
-Python integration				*provider-python*
+Python integration                *provider-python*
 
 Nvim supports Python |remote-plugin|s and the Vim legacy |python3| and
 |pythonx| interfaces (which are implemented as remote-plugins).
@@ -28,7 +25,6 @@ Note: Only the Vim 7.3 legacy interface is supported, not later features such
 as |python-bindeval| (Vim 7.4); use the Nvim API instead. Python 2 is not
 supported.
 
-
 PYTHON QUICKSTART  
 
 To use Python plugins, you need the "pynvim" module. Run |:checkhealth| to see
@@ -36,6 +32,7 @@ if you already have it (some package managers install the module with Nvim
 itself).
 
 For Python 3 plugins:
+
 1. Make sure Python 3.4+ is available in your $PATH.
 2. Install the module (try "python" if "python3" is missing): >bash
    python3 -m pip install --user --upgrade pynvim
@@ -51,21 +48,19 @@ If you run into problems, uninstall _both_ then install "pynvim" again: >bash
   python -m pip uninstall neovim pynvim
   python -m pip install --user --upgrade pynvim
 
-
 PYTHON PROVIDER CONFIGURATION  
-						*g:python3_host_prog*
+                        *g:python3_host_prog*
 Command to start Python 3 (executable, not directory). Setting this makes
 startup faster. Useful for working with virtualenvs. Must be set before any
 check for has("python3").  >vim
     let g:python3_host_prog = '/path/to/python3'
 <
-						*g:loaded_python3_provider*
+                        *g:loaded_python3_provider*
 To disable Python 3 support: >vim
     let g:loaded_python3_provider = 0
 
-
 PYTHON VIRTUALENVS  
-						*python-virtualenv*
+                        *python-virtualenv*
 If you plan to use per-project virtualenvs often, you should assign one
 virtualenv for Neovim and hard-code the interpreter path via
 |g:python3_host_prog| so that the "pynvim" package is not required
@@ -83,11 +78,10 @@ The last command reports the interpreter path, add it to your init.vim: >vim
 See also: https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 
 ==============================================================================
-Ruby integration			      *provider-ruby*
+Ruby integration                  *provider-ruby*
 
 Nvim supports Ruby |remote-plugin|s and the Vim legacy |ruby-vim| interface
 (which is itself implemented as a Nvim remote-plugin).
-
 
 RUBY QUICKSTART  
 
@@ -96,13 +90,12 @@ To use Ruby plugins with Nvim, install the latest "neovim" RubyGem: >bash
 
 Run |:checkhealth| to see if your system is up-to-date.
 
-
 RUBY PROVIDER CONFIGURATION  
-						*g:loaded_ruby_provider*
+                        *g:loaded_ruby_provider*
 To disable Ruby support: >vim
     let g:loaded_ruby_provider = 0
 <
-						*g:ruby_host_prog*
+                        *g:ruby_host_prog*
 Command to start the Ruby host. By default this is "neovim-ruby-host". With
 project-local Ruby versions (via tools like RVM or rbenv) setting this can
 avoid the need to install the "neovim" gem in every project.
@@ -114,7 +107,7 @@ To use the RVM "system" Ruby installation: >vim
     let g:ruby_host_prog = 'rvm system do neovim-ruby-host'
 
 ==============================================================================
-Perl integration				*provider-perl*
+Perl integration                *provider-perl*
 
 Nvim supports Perl |remote-plugin|s on Unix platforms. Support for polling STDIN
 on MS-Windows is currently lacking from all known event loop implementations.
@@ -131,23 +124,21 @@ To use perl remote-plugins with Nvim, install the "Neovim::Ext" cpan package: >b
 
 Run |:checkhealth| to see if your system is up-to-date.
 
-
 PERL PROVIDER CONFIGURATION 
-						*g:loaded_perl_provider*
+                        *g:loaded_perl_provider*
 To disable Perl support: >vim
     :let g:loaded_perl_provider = 0
 <
-						*g:perl_host_prog*
+                        *g:perl_host_prog*
 Command to start the Perl executable. Must be set before any
 check for has("perl").  >vim
     let g:perl_host_prog = '/path/to/perl'
 <
 ==============================================================================
-Node.js integration				*provider-nodejs*
+Node.js integration                *provider-nodejs*
 
 Nvim supports Node.js |remote-plugin|s.
 https://github.com/neovim/node-client/
-
 
 NODEJS QUICKSTART 
 
@@ -156,13 +147,12 @@ To use javascript remote-plugins with Nvim, install the "neovim" npm package: >b
 
 Run |:checkhealth| to see if your system is up-to-date.
 
-
 NODEJS PROVIDER CONFIGURATION 
-						*g:loaded_node_provider*
+                        *g:loaded_node_provider*
 To disable Node.js support: >vim
     :let g:loaded_node_provider = 0
 <
-						*g:node_host_prog*
+                        *g:node_host_prog*
 Command to start the Node.js host. Setting this makes startup faster.
 
 By default, Nvim searches for "neovim-node-host" using "npm root -g", which
@@ -170,7 +160,7 @@ can be slow. To avoid this, set g:node_host_prog to the host path: >vim
     let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 <
 ==============================================================================
-Clipboard integration			      *provider-clipboard* *clipboard*
+Clipboard integration                  *provider-clipboard* *clipboard*
 
 Nvim has no direct connection to the system clipboard. Instead it depends on
 a |provider| which transparently uses shell commands to communicate with the
@@ -182,38 +172,51 @@ the "+" and/or "*" registers explicitly): >vim
 
 See 'clipboard' for details and options.
 
-							      *clipboard-tool*
+                                  *clipboard-tool*
+
 The presence of a working clipboard tool implicitly enables the '+' and '*'
 registers. Nvim looks for these clipboard tools, in order of priority:
 
-  - |g:clipboard|
-  - pbcopy, pbpaste (macOS)
-  - wl-copy, wl-paste (if $WAYLAND_DISPLAY is set)
-  - waycopy, waypaste (if $WAYLAND_DISPLAY is set)
-  - xclip (if $DISPLAY is set)
-  - xsel (if $DISPLAY is set)
-  - lemonade (for SSH) https://github.com/pocke/lemonade
-  - doitclient (for SSH) https://www.chiark.greenend.org.uk/~sgtatham/doit/
-  - win32yank (Windows)
-  - termux (via termux-clipboard-set, termux-clipboard-set)
-  - tmux (if $TMUX is set)
+- |g:clipboard|
 
-								 *g:clipboard*
-To configure a custom clipboard tool, set g:clipboard to a dictionary.
-For example this configuration integrates the tmux clipboard: >vim
+- pbcopy, pbpaste (macOS)
 
-    let g:clipboard = {
-          \   'name': 'myClipboard',
-          \   'copy': {
-          \      '+': ['tmux', 'load-buffer', '-'],
-          \      '*': ['tmux', 'load-buffer', '-'],
-          \    },
-          \   'paste': {
-          \      '+': ['tmux', 'save-buffer', '-'],
-          \      '*': ['tmux', 'save-buffer', '-'],
-          \   },
-          \   'cache_enabled': 1,
-          \ }
+- wl-copy, wl-paste (if $WAYLAND_DISPLAY is set)
+
+- waycopy, waypaste (if $WAYLAND_DISPLAY is set)
+
+- xclip (if $DISPLAY is set)
+
+- xsel (if $DISPLAY is set)
+
+- lemonade (for SSH) https://github.com/pocke/lemonade
+
+- doitclient (for SSH) https://www.chiark.greenend.org.uk/~sgtatham/doit/
+
+- win32yank (Windows)
+
+- termux (via termux-clipboard-set, termux-clipboard-set)
+
+- tmux (if $TMUX is set)
+  
+                               *g:clipboard*
+  
+  To configure a custom clipboard tool, set g:clipboard to a dictionary.
+  For example this configuration integrates the tmux clipboard: >vim
+  
+  let g:clipboard = {
+  
+        \   'name': 'myClipboard',
+        \   'copy': {
+        \      '+': ['tmux', 'load-buffer', '-'],
+        \      '*': ['tmux', 'load-buffer', '-'],
+        \    },
+        \   'paste': {
+        \      '+': ['tmux', 'save-buffer', '-'],
+        \      '*': ['tmux', 'save-buffer', '-'],
+        \   },
+        \   'cache_enabled': 1,
+        \ }
 
 If "cache_enabled" is |TRUE| then when a selection is copied Nvim will cache
 the selection until the copy command process dies. When pasting, if the copy
@@ -221,7 +224,8 @@ process has not died the cached selection is applied.
 
 g:clipboard can also use functions (see |lambda|) instead of strings.
 For example this configuration uses the g:foo variable as a fake clipboard:
->vim
+
+> vim
 
     let g:clipboard = {
           \   'name': 'myClipboard',
@@ -239,24 +243,26 @@ The "copy" function stores a list of lines and the register type. The "paste"
 function returns the clipboard as a `[lines, regtype]` list, where `lines` is
 a list of lines and `regtype` is a register type conforming to |setreg()|.
 
-							      *clipboard-wsl*
+                                  *clipboard-wsl*
+
 For Windows WSL, try this g:clipboard definition:
->vim
-    let g:clipboard = {
-                \   'name': 'WslClipboard',
-                \   'copy': {
-                \      '+': 'clip.exe',
-                \      '*': 'clip.exe',
-                \    },
-                \   'paste': {
-                \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-                \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-                \   },
-                \   'cache_enabled': 0,
-                \ }
+
+> vim
+>     let g:clipboard = {
+>                 \   'name': 'WslClipboard',
+>                 \   'copy': {
+>                 \      '+': 'clip.exe',
+>                 \      '*': 'clip.exe',
+>                 \    },
+>                 \   'paste': {
+>                 \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+>                 \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+>                 \   },
+>                 \   'cache_enabled': 0,
+>                 \ }
 
 ==============================================================================
-Paste							*provider-paste* *paste*
+Paste                            *provider-paste* *paste*
 
 "Paste" is a separate concept from |clipboard|: paste means "dump a bunch of
 text to the editor", whereas clipboard provides features like |quote+| to get
@@ -265,13 +271,15 @@ and set the OS clipboard directly.  For example, middle-click or CTRL-SHIFT-v
 application (Nvim) just gets a stream of text, it does not interact with the
 clipboard directly.
 
-							*bracketed-paste-mode*
+                            *bracketed-paste-mode*
+
 Pasting in the |TUI| depends on the "bracketed paste" terminal capability,
 which allows terminal applications to distinguish between user input and
 pasted text.  https://cirw.in/blog/bracketed-paste
 This works automatically if your terminal supports it.
 
-							*ui-paste*
+                            *ui-paste*
+
 GUIs can paste by calling |nvim_paste()|.
 
 PASTE BEHAVIOR  
@@ -292,7 +300,7 @@ Example: >lua
   end)
 
 ==============================================================================
-X11 selection mechanism			      *clipboard-x11* *x11-selection*
+X11 selection mechanism                  *clipboard-x11* *x11-selection*
 
 X11 clipboard providers store text in "selections". Selections are owned by an
 application, so when the application gets closed, the selection text is lost.
@@ -300,7 +308,7 @@ The contents of selections are held by the originating application (e.g., upon
 a copy), and only passed to another application when that other application
 requests them (e.g., upon a paste).
 
-				*primary-selection* *quotestar* *quoteplus* *quote+*
+                *primary-selection* *quotestar* *quoteplus* *quote+*
 
 There are three documented X11 selections: PRIMARY, SECONDARY, and CLIPBOARD.
 CLIPBOARD is typically used in X11 applications for copy/paste operations
