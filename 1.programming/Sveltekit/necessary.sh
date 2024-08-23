@@ -15,4 +15,5 @@ npm install --save @types/jsonwebtoken
 npm install dotenv --save
 npm install --save-dev @types/dotenv
 
-npm i svelte-markdown
+# npm i svelte-markdown
+npm install marked
