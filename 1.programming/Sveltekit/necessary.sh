@@ -3,17 +3,23 @@ npx --yes svelte-add@latest tailwindcss
 
 npm install tailwindcss-question-mark
 npm install @tailwindcss/line-clamp
-npm install -D @tailwindcss/forms
-npm install -D @tailwindcss/aspect-ratio
-npm install -D prettier prettier-plugin-tailwindcss
-npm install -D @tailwindcss/typography
-npm install @tailwindcss/container-queries
+npm install  @tailwindcss/forms
+npm install tailwindcss-aspect-ratio
+npm i prettier
+npm i prettier-plugin-tailwindcss
+npm i tailwindcss-typography
+npm i tailwindcss-container-query
 
-npm install jsonwebtoken
-npm install --save @types/jsonwebtoken
+
+npm i jsonwebtoken
+
+npm i @types/jsonwebtoken
+
 
 npm install dotenv --save
-npm install --save-dev @types/dotenv
+
+# npm i @types/dotenv-safe
+
 
 # npm i svelte-markdown
 npm install marked
