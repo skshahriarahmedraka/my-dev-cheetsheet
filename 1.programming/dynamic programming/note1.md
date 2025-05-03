@@ -2,8 +2,6 @@ Dynamic programming : enhanced recursion
 
 Recurtion is the parent of Dynamic programming
 
-
-
 Identify :
 
 1. Recursion
@@ -15,8 +13,6 @@ Identify :
 4. Overlapping tree 
 
 Recursion -> memorization -> top down -> other step
-
-
 
 Knapsack 
 
@@ -49,8 +45,6 @@ Dynamic programming : 80
 9. DP on grid  - 14
 
 10. Others - 5 
-    
-    
 
 0-1 knapsack problem  : 
 
@@ -63,15 +57,11 @@ Dynamic programming : 80
 4. Minimum subset sum diff 
 
 5. Target sum 
-   
-   
-   
-   # of subset & genis
+
+# of subset & genis
 
 1. subset sum 
 
 https://github.com/skshahriarahmedraka/AlgorithmAll.git
 
     python/0-1 knapsack.py
-
-
