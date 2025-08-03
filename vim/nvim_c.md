@@ -7,7 +7,7 @@ l - right
 
 ## end of the line : capital A
 
-A
+ qwA
 
 ## begining of the line : capital I
 
