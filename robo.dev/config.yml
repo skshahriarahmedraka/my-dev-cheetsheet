@@ -1,0 +1,245 @@
+version: 1
+
+# Agent behavior and model settings
+agent:
+  # Additional system prompt to append to the agent's default system prompt
+  additionalSystemPrompt: null
+  # Enable streaming responses from the AI model
+  streaming: true
+  # Temperature setting for AI model responses (0.0-1.0)
+  temperature: 0.3
+  # Model ID to use for the agent. Valid options are: auto, gpt-5-2025-08-07,
+  # claude-sonnet-4@20250514
+  modelId: anthropic.claude-sonnet-4-5-20250929-v1:0
+  # Enable the deep planning tool for complex task planning
+  enableDeepPlanTool: true
+  # Enable/disable experimental features
+  experimental:
+    # Enable/disable the agent to run in shadow mode. This will run the agent on
+    # a temporary clone of your workspace, prompting you before any changes are
+    # applied to your working directory.
+    enableShadowMode: false
+
+# Session management settings
+sessions:
+  # Automatically restore the last active session on startup
+  autoRestore: false
+  # Directory where session data is stored
+  persistenceDir: /home/raka/.rovodev/sessions
+
+# Atlassian product integration settings
+atlassianConnections:
+  # Global jira projects user is part of
+  jiraProjects: []
+  # Directory where any local overrides are stored
+  localOverridePath: .rovodev/atlassian_connections.json
+  # Whether atlassian integration is enabled
+  enabled: true
+
+# Console and UI behavior settings
+console:
+  # Output format for console display (markdown, simple, or raw)
+  outputFormat: markdown
+  # Show tool execution results in the console
+  showToolResults: true
+  # Editing mode for the prompt session
+  editingMode: EMACS
+  # Shell command to generate a command prompt that replaces the default '> '.
+  # For example, set 'STARSHIP_SHELL=rovodev starship prompt' to use Starship.
+  customCommandPrompt: null
+  # Maximum width of the console output in characters, or 'fill' to fill the
+  # terminal width
+  maxOutputWidth: 120
+
+# Logging and prompt collection settings
+logging:
+  # Path to the log file
+  path: /home/raka/.rovodev/rovodev.log
+
+# Model Context Protocol server configuration
+mcp:
+  # Path to the MCP (Model Context Protocol) configuration file
+  mcpConfigPath: /home/raka/.rovodev/mcp.json
+  # List of allowed MCP server signatures
+  allowedMcpServers: []
+  # List of globally disabled MCP server signatures
+  disabledMcpServers: []
+
+# Tool and command permission settings
+toolPermissions:
+  # Default permission for tools not explicitly listed
+  default: allow
+  # Permission settings for specific tools
+  tools:
+    create_file: allow
+    delete_file: allow
+    move_file: allow
+    find_and_replace_code: allow
+    open_files: allow
+    expand_code_chunks: allow
+    expand_folder: allow
+    grep: allow
+  bash:
+    # Default permission for bash commands not explicitly listed
+    default: allow
+    # List of specific bash commands with their permission settings
+    commands:
+    - command: ls.*
+      permission: allow
+    - command: cat.*
+      permission: allow
+    - command: echo.*
+      permission: allow
+    - command: pwd
+      permission: allow
+    - command: find.*
+      permission: allow
+    - command: ls -la pkg/ 2>/dev/null
+      permission: allow
+    - command: awk.*
+      permission: allow
+    - command: xargs.*
+      permission: allow
+    - command: mv.*
+      permission: allow
+    - command: go mod tidy 2>&1
+      permission: allow
+    - command: go build -o main . 2>&1
+      permission: allow
+    - command: ls -lh main 2>/dev/null
+      permission: allow
+    - command: ./scripts/verify_implementation.sh
+      permission: allow
+    - command: go.*
+      permission: allow
+    - command: tree.*
+      permission: allow
+    - command: ls -1 docs/*.md QUICK_START.md SUCCESS_SUMMARY.md IMPLEMENTATION_SUMMARY.md
+        FINAL_DELIVERY_REPORT.md GET_STARTED.md 2>/dev/null
+      permission: allow
+    - command: ls -1 examples/*.go 2>/dev/null
+      permission: allow
+    - command: ls -1 database/scylladb/migrations/*.cql 2>/dev/null
+      permission: allow
+    - command: go test -v 2>&1
+      permission: allow
+    - command: chmod.*
+      permission: allow
+    - command: Command.*
+      permission: allow
+    - command: Description.*
+      permission: allow
+    - command: '---------.*'
+      permission: allow
+    - command: '`make migrate-generate`'
+      permission: allow
+    - command: Generate.*
+      permission: allow
+    - command: Create.*
+      permission: allow
+    - command: '`make migrate-up`'
+      permission: allow
+    - command: Apply.*
+      permission: allow
+    - command: '`make migrate-down`'
+      permission: allow
+    - command: Rollback.*
+      permission: allow
+    - command: '`make migrate-status`'
+      permission: allow
+    - command: Show.*
+      permission: allow
+    - command: '`make migrate-help`'
+      permission: allow
+    - command: Go.*
+      permission: allow
+    - command: CQL.*
+      permission: allow
+    - command: '----------.*'
+      permission: allow
+    - command: '`string`'
+      permission: allow
+    - command: '`text`'
+      permission: allow
+    - command: '`int`, `int32`'
+      permission: allow
+    - command: '`int`'
+      permission: allow
+    - command: '`int64`'
+      permission: allow
+    - command: '`bigint`'
+      permission: allow
+    - command: '`float64`'
+      permission: allow
+    - command: '`double`'
+      permission: allow
+    - command: '`bool`'
+      permission: allow
+    - command: '`boolean`'
+      permission: allow
+    - command: '`gocql.UUID`'
+      permission: allow
+    - command: '`uuid`'
+      permission: allow
+    - command: '`time.Time`'
+      permission: allow
+    - command: '`timestamp`'
+      permission: allow
+    - command: '`[]string`'
+      permission: allow
+    - command: '`list<text>`'
+      permission: allow
+    - command: '`map[string]string`'
+      permission: allow
+    - command: '`map<text,text>`'
+      permission: allow
+    - command: ls -lh tools/migration/*.go cmd/migrate/*.go 2>/dev/null
+      permission: allow
+    - command: ls -lh *MIGRATION*.md docs/MIGRATION*.md 2>/dev/null
+      permission: allow
+    - command: cargo build --release 2>&1
+      permission: allow
+    - command: cargo build 2>&1
+      permission: allow
+    - command: bash.*
+      permission: allow
+    - command: 'echo "Total icon count: $(ls -1 assets/icons/*.svg | wc -l)"'
+      permission: allow
+    - command: grep -r "binding:" internal/api/http/request/ 2>/dev/null
+      permission: allow
+    - command: grep -r "gin\." internal/ --include="*.go" 2>/dev/null
+      permission: allow
+    - command: grep -r "github.com/gin-gonic/gin" internal/ --include="*.go" 2>/dev/null
+      permission: allow
+    - command: go build -o /dev/null ./... 2>&1
+      permission: allow
+    - command: go build -o /dev/null . 2>&1
+      permission: allow
+    - command: go test ./internal/api/http/controller/authentication/... -v 2>&1
+      permission: allow
+    - command: grep -r "github.com/gin-gonic/gin" . --include="*.go" 2>/dev/null
+      permission: allow
+    # Run bash commands in a sandboxed environment - currently available for
+    # MacOS and Linux only. Enabling this option for Windows will prevent the
+    # agent from running powershell commands.
+    runInSandbox: false
+  # List of file or directory paths that are allowed to be accessed outside the
+  # workspace
+  allowedExternalPaths: []
+
+announcementTracking:
+  announcementViewCounts: {}
+
+sessionFeedback:
+  permanentlyDisabled: false
+  lastFeedbackAsked: null
+
+atlassianBillingSite:
+  siteUrl: https://rakajui.atlassian.net
+
+smartTasks:
+  # Enable Smart Tasks discovery
+  enabled: true
+  # List of task discovery sources
+  sources:
+  - filesystem
